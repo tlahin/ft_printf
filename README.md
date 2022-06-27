@@ -2,7 +2,9 @@
 
   Becase I'm tired of using putnbr and putstr...
 
-  In this project goal is to reproduce the behaviour of printf function
+  In this project goal is to reproduce the behaviour of printf function.
+
+  Subject: [ft_printf.en.pdf](https://github.com/tlahin/ft_printf/files/8990312/ft_printf.en.pdf)
   
 # Sources
 
