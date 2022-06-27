@@ -12,7 +12,9 @@
 
 #include "ft_printf.h"
 
-int	ft_printf()
+int	ft_printf(const char *xxx, ...)
 {
+	va_stuff...
 
+	return (something idk xd);
 }
