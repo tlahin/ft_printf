@@ -11,3 +11,19 @@
 # **************************************************************************** #
 
 
+NAME = libftprintf.a
+
+SRCS_DIR = sources/
+SRCS_LIST =
+# functions here plz
+
+
+SRCS = $(addprefix $(SRCS_DIR), $(SRCS_LIST))
+
+OBJS = $(SRCS_LIST:.c=.o)
+
+INCL_DIR = includes/
+INCLUDES = -I $(INCL_DIR)
+
+FLAGS = -Wall -Werror -Wextra
+
