@@ -6,6 +6,5 @@
   
 # Sources
 
-  - [](https://medium.com/my-journey-at-42-silicon-valley-as-a-non-cs-major/project-4-printf-function-6396c78ac22e)
-  - [](https://cplusplus.com/reference/cstdio/printf/)
-  - [](https://www.lix.polytechnique.fr/~liberti/public/computing/prog/c/C/FUNCTIONS/format.html)
+  - [Printf explained](https://cplusplus.com/reference/cstdio/printf/)
+  - [Format identifiers](https://www.lix.polytechnique.fr/~liberti/public/computing/prog/c/C/FUNCTIONS/format.html)
