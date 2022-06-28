@@ -21,3 +21,17 @@ SRCS_LIST =
 
 FLAGS = -Wall -Werror -Wextra
 
+all : $(NAME)
+
+$(NAME) :
+	stuff and things
+
+clean :
+	rm -f $(OBJS)
+
+fclean : clean
+	rm -f $(NAME)
+
+re : fclean all
+
+.PHONY: all clean fclean
