@@ -14,24 +14,36 @@
 NAME = libftprintf.a
 
 SRCS_DIR = sources/
-SRCS_LIST =
+SRCS =
 # functions here plz
 
+INCLS = -I./libft -I./includes
 
+OBJS_LIB = libft/*.o
+OBJS = $(SRCS:.c=.o) $(OBJS_LIB)
 
 FLAGS = -Wall -Werror -Wextra
 
 all : $(NAME)
 
 $(NAME) :
-	stuff and things
+	@make -C ./libft
+	@echo "Compiling.."
+	@gcc -c $(FLAGS) $(INCLS) $(SRCS)
+	@echo "Creating library libftprintf.a.."
+	@ar rcs $(NAME) $(OBJS)
+	@echo "Make complete."
 
 clean :
-	rm -f $(OBJS)
+	@echo "Removing object files.."
+	@make -C ./libft/ clean
+	@rm -f $(OBJS)
 
 fclean : clean
-	rm -f $(NAME)
+	@echo "Removing library.."
+	@make -C ./libft/ fclean
+	@rm -f $(NAME)
 
 re : fclean all
 
-.PHONY: all clean fclean
+.PHONY: all clean fclean re
