@@ -1,4 +1,4 @@
-# FT_PRINTF
+# ft_printf
 
   Becase I'm tired of using putnbr and putstr...
 
@@ -17,3 +17,4 @@
   - [Includes useful links for printf in general](https://medium.com/my-journey-at-42-silicon-valley-as-a-non-cs-major/project-4-printf-function-6396c78ac22e)
   - [Printf explained](https://cplusplus.com/reference/cstdio/printf/)
   - [Format identifiers](https://www.lix.polytechnique.fr/~liberti/public/computing/prog/c/C/FUNCTIONS/format.html)
+  - [Dispatch tables](https://blog.alicegoldfuss.com/function-dispatch-tables)
