@@ -14,7 +14,7 @@
 NAME = libftprintf.a
 
 SRCS_DIR = sources/
-SRCS =
+SRCS = ft_printf.c \
 # functions here plz
 
 INCLS = -I./libft -I./includes
@@ -29,7 +29,7 @@ all : $(NAME)
 $(NAME) :
 	@make -C ./libft
 	@echo "Compiling.."
-	@gcc -c $(FLAGS) $(INCLS) $(SRCS)
+	@gcc -c $(FLAGS) $(INCLS) $(addprefix $(SRCS_DIR), $(SRCS))
 	@echo "Creating library libftprintf.a.."
 	@ar rcs $(NAME) $(OBJS)
 	@echo "Make complete."
