@@ -12,8 +12,43 @@
 
 #include "ft_printf.h"
 
-int	ft_printf(const char *xxx, ...)
+int	ft_printchar(int c)
 {
-	va_stuff...
-	return (something idk xd);
+	write(1, &c, 1);
+	return (1);
+}
+
+int	ft_types(va_list args, const char format)
+{
+	if (format == 'c')
+		ft_printchar(va_arg(args, int));
+	else if (format == '%')
+		ft_printchar('%');
+	return (0);
+}
+
+int	ft_printf(const char *format, ...)
+{
+	va_list		args;
+	const char	*ptr;
+	int			len;
+
+	len = 0;
+
+	va_start(args, format);
+
+	ptr = format;
+	while (*ptr != '\0')
+	{
+		if (*ptr == '%')
+		{
+			ft_types(args, *ptr);
+			ptr++;
+		}
+		else
+			ft_printchar(*ptr);
+		ptr++;
+	}
+	va_end(args);
+	return (0);
 }
