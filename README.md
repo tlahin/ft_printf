@@ -18,3 +18,4 @@
   - [Printf explained](https://cplusplus.com/reference/cstdio/printf/)
   - [Format identifiers](https://www.lix.polytechnique.fr/~liberti/public/computing/prog/c/C/FUNCTIONS/format.html)
   - [Dispatch tables](https://blog.alicegoldfuss.com/function-dispatch-tables)
+  - [VA_ARGS explained](https://www.eskimo.com/~scs/cclass/int/sx11b.html)
