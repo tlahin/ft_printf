@@ -14,13 +14,13 @@
 # define FT_PRINTF_H
 
 # include <unistd.h>
-# include <stdlib.h>
 # include <stdarg.h>
-# include "libft.h"
-# include "get_next_line.h"
+
+# include <stdio.h> //laiton
 
 // structs
 
 // function prototypes
+int		ft_printf(const char *format, ...);
 
 #endif
