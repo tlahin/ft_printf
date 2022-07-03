@@ -14,7 +14,8 @@
 NAME = libftprintf.a
 
 SRCS_DIR = sources/
-SRCS = ft_printf.c \
+SRCS =	ft_printf.c \
+		basic.c \
 # functions here plz
 
 INCLS = -I./libft -I./includes
