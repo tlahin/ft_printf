@@ -15,6 +15,7 @@
 
 # include <unistd.h>
 # include <stdarg.h>
+# include "../libft/libft.h"
 
 # include <stdio.h> //laiton
 
@@ -22,5 +23,6 @@
 
 // function prototypes
 int		ft_printf(const char *format, ...);
+int		ft_printchar(int c);
 
 #endif
