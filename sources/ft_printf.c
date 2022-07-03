@@ -12,18 +12,20 @@
 
 #include "ft_printf.h"
 
-int	ft_printchar(int c)
-{
-	write(1, &c, 1);
-	return (1);
-}
-
 int	ft_types(va_list args, const char format)
 {
-	if (format == 'c')
-		ft_printchar(va_arg(args, int));
-	else if (format == '%')
-		ft_printchar('%');
+	switch (format)
+	{
+		case 'c':
+			ft_printchar(va_arg(args, int));
+			break;
+		case 's':
+			ft_putstr(va_arg(args, char *));
+			break;
+		case '%':
+			ft_putchar('%');
+			break;
+	}
 	return (0);
 }
 
@@ -42,11 +44,13 @@ int	ft_printf(const char *format, ...)
 	{
 		if (*ptr == '%')
 		{
-			ft_types(args, *ptr);
 			ptr++;
+			ft_types(args, *ptr);
 		}
 		else
+		{
 			ft_printchar(*ptr);
+		}
 		ptr++;
 	}
 	va_end(args);
