@@ -22,6 +22,15 @@ int	ft_types(va_list args, const char format)
 		case 's':
 			ft_putstr(va_arg(args, char *));
 			break;
+		case 'p':
+			ft_printptr(va_arg(args, ???)); //check
+			break;
+		case 'd':
+			ft_putnbr(va_arg(args, int));
+			break;
+		case 'i':
+			ft_putnbr(va_arg(args, int));
+			break;
 		case '%':
 			ft_putchar('%');
 			break;
