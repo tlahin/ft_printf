@@ -14,28 +14,40 @@
 
 int	ft_types(va_list args, const char format)
 {
-	switch (format)
+	while ()
 	{
-		case 'c':
+		if (format == 'c')
+		{
 			ft_printchar(va_arg(args, int));
 			break;
-		case 's':
+		}
+		else if (format == 's')
+		{
 			ft_putstr(va_arg(args, char *));
 			break;
-		case 'p':
-			ft_printptr(va_arg(args, ???)); //check
+		}
+		else if (format == 'p')
+		{
+			ft_printptr(va_arg(args, ???));
 			break;
-		case 'd':
+		}
+		else if (format == 'd')
+		{
 			ft_putnbr(va_arg(args, int));
 			break;
-		case 'i':
+		}
+		else if (format == 'i'):
+		{
 			ft_putnbr(va_arg(args, int));
 			break;
-		case '%':
+		}
+		else
+		{
 			ft_putchar('%');
 			break;
+		}
 	}
-	return (0);
+	return (-1);
 }
 
 int	ft_printf(const char *format, ...)
