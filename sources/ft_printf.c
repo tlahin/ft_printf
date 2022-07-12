@@ -36,7 +36,7 @@ int	ft_types(va_list args, const char format)
 			ft_putnbr(va_arg(args, int));
 			break;
 		}
-		else if (format == 'i'):
+		else if (format == 'i')
 		{
 			ft_putnbr(va_arg(args, int));
 			break;
