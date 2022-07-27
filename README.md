@@ -20,3 +20,5 @@
   - [Dispatch tables](https://blog.alicegoldfuss.com/function-dispatch-tables)
   - [VA_ARGS explained](https://www.eskimo.com/~scs/cclass/int/sx11b.html)
   - [Difference between signed and unsigned int](https://stackoverflow.com/questions/9045436/the-real-difference-between-int-and-unsigned-int)
+  
+  Not sure if useless? https://stackoverflow.com/questions/30354097/how-to-printf-a-memory-address-in-c
