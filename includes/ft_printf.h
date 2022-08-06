@@ -16,7 +16,7 @@
 # include <unistd.h>
 # include <stdarg.h>
 # include "../libft/libft.h"
-
+# include <stdint.h>
 # include <stdio.h> //laiton
 
 // structs
@@ -25,5 +25,6 @@
 int		ft_printf(const char *format, ...);
 int		ft_printchar(int c);
 int		ft_print_ptr(unsigned long long ptr);
+void		ft_put_ptr(uintptr_t num);
 
 #endif
