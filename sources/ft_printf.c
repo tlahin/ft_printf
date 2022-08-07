@@ -14,31 +14,29 @@
 
 int	ft_types(va_list args, const char format)
 {
+	int		print_length;
+
+	print_length = 0;
+
 	if (format == 'c')
-	{
-		ft_printchar(va_arg(args, int));
-	}
+		print_length = ft_printchar(va_arg(args, int)); //make print char return print len
 	else if (format == 's')
-	{
-		ft_putstr(va_arg(args, char *));
-	}
+		print_length = ft_putstr(va_arg(args, char *)); //print str func
 	else if (format == 'p')
-	{
-		ft_print_ptr(va_arg(args, unsigned long long));
-	}
-	else if (format == 'd')
-	{
-		ft_putnbr(va_arg(args, int));
-	}
-	else if (format == 'i')
-	{
-		ft_putnbr(va_arg(args, int));
-	}
+		print_length = ft_print_ptr(va_arg(args, unsigned long long)); //return print length
+	else if (format == 'd' || format == 'i')
+		print_length = ft_printnbr(va_arg(args, int)); //print nbr func
+	else if (format == 'o')
+		print_length = ft_print_oct(va_args(args, unsigned int)); //print oct func
+	else if (format == 'u')
+		print_length = ft_printf_uint(va_args(args, unsigned int)); //todo
+	else if (format == 'x' || format == 'X')
+		print_length = ft_print_hex(va_arg(args, unsigned int), format); //todo
 	else
-	{
-		ft_putchar('%');
-	}
+		print_length = ft_printprecent();
 	return (0);
+
+	//print length!!
 }
 
 int	ft_printf(const char *format, ...)
@@ -47,7 +45,6 @@ int	ft_printf(const char *format, ...)
 	const char	*ptr;
 
 	va_start(args, format);
-
 	ptr = format;
 	while (*ptr != '\0')
 	{
