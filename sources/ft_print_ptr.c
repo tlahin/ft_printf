@@ -24,6 +24,7 @@ int	ft_print_ptr(unsigned long long ptr)
 		write(1, "0", 1);	
 	else
 	{
+		ft_putstr("0x");
 		ft_put_ptr(ptr);
 	}
 	return(0);
