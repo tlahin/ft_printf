@@ -17,12 +17,14 @@ int	main(void)
 	char	c;
 	char	*str;
 	int		i;
-	char	*ptr;
+	char	*ptr1;
+	char	*ptr2;
 
 	c = 'A';
 	str = "ABC";
 	i = 42;
-	ptr = str;
+	ptr1 = str;
+	ptr2 = NULL;
 	ft_printf("\nft_printf: Hello %%!\n");
 	printf("OG_printf: Hello %%!\n\n");
 	ft_printf("ft_printf: %c\n", c);
@@ -33,7 +35,9 @@ int	main(void)
 	printf("OG_printf: %d\n\n", i);
 	ft_printf("ft_printf: %i\n", i);
 	printf("OG_printf: %i\n\n", i);
-	ft_printf("ft_printf: %p\n", &ptr);
-	printf("OG_printf: %p\n\n", &ptr);
+	ft_printf("ft_printf: %p\n", &ptr1);
+	printf("OG_printf: %p\n\n", &ptr1);
+	ft_printf("ft_printf: %p\n", &ptr2);
+	printf("OG_printf: %p\n", &ptr2); 
 	return (1);
 }
