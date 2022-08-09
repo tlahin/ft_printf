@@ -23,7 +23,10 @@
 
 // function prototypes
 int		ft_printf(const char *format, ...);
-int		ft_printchar(int c);
+int		ft_print_char(int c);
+int		ft_print_str(char *str);
+int		ft_print_nbr(int nbr);
+int		ft_print_precent(void);
 int		ft_print_ptr(unsigned long long ptr);
 void		ft_put_ptr(uintptr_t num);
 
