@@ -2,6 +2,19 @@
 
 #include "../includes/ft_printf.h"
 
+int	ft_ptr_len(uintptr_t num)
+{
+	int	len;
+
+	len = 0;
+	while (num != 0)
+	{
+		len++;
+		num = num / 16;
+	}
+	return (len);
+}
+
 void	ft_put_ptr(uintptr_t num)
 {
 	if (num >= 16)
@@ -20,12 +33,16 @@ void	ft_put_ptr(uintptr_t num)
 
 int	ft_print_ptr(unsigned long long ptr)
 {
+	int	print_length;
+
+	print_length = 0;
+	print_length += write(1, "0x", 2);
 	if (ptr == 0)
-		write(1, "0", 1);	
+		print_length += write(1, "0", 1);	
 	else
 	{
-		ft_putstr("0x");
 		ft_put_ptr(ptr);
+		print_length += ft_ptr_len(ptr);
 	}
-	return(0);
+	return(print_length);
 }

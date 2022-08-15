@@ -28,6 +28,6 @@ int		ft_print_str(char *str);
 int		ft_print_nbr(int nbr);
 int		ft_print_precent(void);
 int		ft_print_ptr(unsigned long long ptr);
-void		ft_put_ptr(uintptr_t num);
-
+int		ft_print_oct(unsigned int num);
+int		ft_print_hex(unsigned int num, const char format);
 #endif

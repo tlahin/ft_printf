@@ -20,30 +20,30 @@ int	ft_print_char(int c)
 
 int	ft_print_str(char *str)
 {
-	int	print_length;
 	int 	i;
 
 	i = 0;
-	print_length = ft_strlen(str);
 	if (str == NULL)
 	{
 		ft_putstr("(null)");
 		return (-1);
 	}
 	while (str[i])
+	{
 		write(1, &str[i], 1);
-	return (print_length);
+		i++;	
+	}
+	return (i);
 }
 
 int	ft_print_nbr(int nbr)
 {
-	int 	print_length;
+	int 	len;
 	char	*number;
 
 	number = ft_itoa(nbr);
-	print_length = ft_print_str(number);
-	free(number);
-	return (print_length);
+	len = ft_print_str(number);
+	return (len);
 }
 
 int	ft_print_precent(void)

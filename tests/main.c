@@ -22,21 +22,35 @@ int	main(void)
 
 	c = 'A';
 	str = "ABC";
-	i = 42;
+	i = 123;
 	ptr1 = str;
 	ptr2 = NULL;
-	ft_printf("\nft_printf: Hello %%!\n");
+
+	printf("\n%%\n");
+	ft_printf("ft_printf: Hello %%!\n");
 	printf("OG_printf: Hello %%!\n\n");
+	
+	printf("char\n");
 	ft_printf("ft_printf: %c\n", c);
 	printf("OG_printf: %c\n\n", c);
+	
+	printf("str\n");
 	ft_printf("ft_printf: %s\n", str);
 	printf("OG_printf: %s\n\n", str);
+	
+	printf("integer\n");
 	ft_printf("ft_printf: %d\n", i);
 	printf("OG_printf: %d\n\n", i);
+	
+	printf("integer\n");
 	ft_printf("ft_printf: %i\n", i);
 	printf("OG_printf: %i\n\n", i);
+	
+	printf("pointer\n");
 	ft_printf("ft_printf: %p\n", &ptr1);
 	printf("OG_printf: %p\n\n", &ptr1);
+	
+	printf("pointer null\n");
 	ft_printf("ft_printf: %p\n", &ptr2);
 	printf("OG_printf: %p\n", &ptr2); 
 	return (1);

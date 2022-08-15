@@ -16,7 +16,7 @@ size_t	ft_intlen(int i)
 {
 	int	count;
 
-	count = 0;
+	count = 1;
 	if (i == -2147483648)
 		return ((size_t) 11);
 	if (i < 0)

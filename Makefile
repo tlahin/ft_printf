@@ -18,6 +18,7 @@ SRCS =	ft_printf.c \
 	basic.c \
 	print_ptr.c \
 	print_hex.c \
+	print_oct.c \
 
 INCLS = -I./libft -I./includes
 
