@@ -28,8 +28,8 @@ int	ft_types(va_list args, const char format)
 		print_length = ft_print_nbr(va_arg(args, int));
 	else if (format == 'o')
 		print_length = ft_print_oct(va_arg(args, unsigned int));
-	//else if (format == 'u')
-		//print_length = ft_printf_uint(va_arg(args, unsigned int)); //todo
+	else if (format == 'u')
+		/print_length = ft_printf_uint(va_arg(args, unsigned int));
 	else if (format == 'x' || format == 'X')
 		print_length = ft_print_hex(va_arg(args, unsigned int), format);
 	else
