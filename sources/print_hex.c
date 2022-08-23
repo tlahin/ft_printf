@@ -32,7 +32,7 @@ void	ft_put_hex(unsigned int num, const char format)
 			if (format == 'x')
 				ft_putchar_fd((num - 10 + 'a'), 1);
 			if (format == 'X')
-				ft_putchar_fd((num = 10 + 'A'), 1);
+				ft_putchar_fd((num - 10 + 'A'), 1);
 		}
 	}
 }
