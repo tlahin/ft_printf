@@ -29,7 +29,7 @@ int	ft_types(va_list args, const char format)
 	else if (format == 'o')
 		print_length = ft_print_oct(va_arg(args, unsigned int));
 	else if (format == 'u')
-		print_length = ft_printf_uint(va_arg(args, unsigned int));
+		print_length = ft_print_uint(va_arg(args, unsigned int));
 	else if (format == 'x' || format == 'X')
 		print_length = ft_print_hex(va_arg(args, unsigned int), format);
 	else
