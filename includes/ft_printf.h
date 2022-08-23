@@ -30,4 +30,6 @@ int		ft_print_precent(void);
 int		ft_print_ptr(unsigned long long ptr);
 int		ft_print_oct(unsigned int num);
 int		ft_print_hex(unsigned int num, const char format);
+int		ft_print_uint(unsigned int num);
+
 #endif
