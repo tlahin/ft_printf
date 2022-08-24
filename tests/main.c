@@ -20,7 +20,7 @@ int	main(void)
 	char	*ptr1;
 	char	*ptr2;
 	int	x;
-	int	u;
+	unsigned int	u;
 
 	c = 'A';
 	str = "ABC";
@@ -28,7 +28,7 @@ int	main(void)
 	ptr1 = str;
 	ptr2 = NULL;
 	x = 42;
-	u = 3000000;
+	u = 4294967295;
 
 	printf("\n%%\n");
 	ft_printf("ft_printf: Hello %%!\n");
@@ -55,8 +55,8 @@ int	main(void)
 	printf("OG_printf: %p\n\n", &ptr1);
 	
 	printf("pointer null\n");
-	ft_printf("ft_printf: %p\n", &ptr2);
-	printf("OG_printf: %p\n\n", &ptr2); 
+	ft_printf("ft_printf: %p\n", ptr2);
+	printf("OG_printf: %p\n\n", ptr2); 
 
 	printf("octal decimal\n");
 	ft_printf("ft_printf: %o\n", x);
@@ -73,5 +73,7 @@ int	main(void)
 	printf("big hexa decimal\n");
 	ft_printf("ft_printf: %X\n", x);
 	printf("OG_printf: %X\n\n", x);
+	
+	ft_printf("Just printing some text xyz123!?/\n00NULL\t,.asdxASD\n\n");
 	return (1);
 }
