@@ -39,6 +39,11 @@ int	ft_print_ptr(unsigned long long ptr)
 	print_length += write(1, "0x", 2);
 	if (ptr == 0)
 		print_length += write(1, "0", 1);	
+	/*else if (ptr == NULL)
+	{
+		print_length += 	
+	}
+	*/
 	else
 	{
 		ft_put_ptr(ptr);
