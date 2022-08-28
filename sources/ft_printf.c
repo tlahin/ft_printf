@@ -12,6 +12,22 @@
 
 #include "ft_printf.h"
 
+void	ft_flags(va_list args, const char format, t_flags *info)
+{
+	while (ft_strchr(FLAGS, *ptr))
+	{
+		if (format == '#')
+			info->hash = true;
+		if (format == '0')
+			info->zero = true;
+		if (format == '-')
+			info->dash = true;
+		if (format == ' ')
+			info->space = true;
+		if (format == '+')
+			info->plus = true;
+	}
+}
 int	ft_types(va_list args, const char format)
 {
 	int		print_length;
@@ -42,6 +58,7 @@ int	ft_printf(const char *format, ...)
 	va_list		args;
 	const char	*ptr;
 	int		print_length;
+	t_flags		*info;
 
 	va_start(args, format);
 	ptr = format;
@@ -51,6 +68,7 @@ int	ft_printf(const char *format, ...)
 		if (*ptr == '%')
 		{
 			ptr++;
+			ft_flags(args, *ptr, info);
 			print_length += ft_types(args, *ptr);
 		}
 		else
