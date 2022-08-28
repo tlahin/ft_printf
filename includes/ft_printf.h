@@ -21,6 +21,16 @@
 
 // structs
 
+typedef struct		s_data
+{
+	bool		is_signed;
+	bool		hash;
+	bool		dash;
+	bool		plus;
+	bool		space;
+	bool		zero;
+}			t_flags;
+
 // function prototypes
 int		ft_printf(const char *format, ...);
 int		ft_print_char(int c);
