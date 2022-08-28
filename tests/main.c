@@ -75,5 +75,8 @@ int	main(void)
 	printf("OG_printf: %X\n\n", x);
 	
 	ft_printf("Just printing some text xyz123!?/\n00NULL\t,.asdxASD\n\n");
+
+	printf("LL flags\n");
+	printf("OG_printf: %ld\n", 650000L);
 	return (1);
 }
