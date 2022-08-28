@@ -41,22 +41,24 @@ int	ft_printf(const char *format, ...)
 {
 	va_list		args;
 	const char	*ptr;
+	int		print_length;
 
 	va_start(args, format);
 	ptr = format;
+	print_length = 0;
 	while (*ptr != '\0')
 	{
 		if (*ptr == '%')
 		{
 			ptr++;
-			ft_types(args, *ptr);
+			print_length += ft_types(args, *ptr);
 		}
 		else
 		{
-			ft_print_char(*ptr);
+			print_length += ft_print_char(*ptr);
 		}
 		ptr++;
 	}
 	va_end(args);
-	return (0);
+	return (print_length);
 }
