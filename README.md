@@ -22,3 +22,12 @@
   - [Difference between signed and unsigned int](https://stackoverflow.com/questions/9045436/the-real-difference-between-int-and-unsigned-int)
   
   Not sure if useless? https://stackoverflow.com/questions/30354097/how-to-printf-a-memory-address-in-c
+
+
+  track and store flags:
+  
+  - l
+  - ll
+  - h
+  - hh
+  - width and prefixes/suffixes
