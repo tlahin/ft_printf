@@ -17,29 +17,11 @@
 # include <stdarg.h>
 # include "../libft/libft.h"
 # include <stdint.h>
+# include <stdbool.h>
 # include <stdio.h> //laiton
 
-// structs
+# define FLAGS "#0- +"
 
-typedef struct		s_data
-{
-	bool		is_signed;
-	bool		hash;
-	bool		dash;
-	bool		plus;
-	bool		space;
-	bool		zero;
-}			t_flags;
-
-// function prototypes
-int		ft_printf(const char *format, ...);
-int		ft_print_char(int c);
-int		ft_print_str(char *str);
-int		ft_print_nbr(int nbr);
-int		ft_print_precent(void);
-int		ft_print_ptr(unsigned long long ptr);
-int		ft_print_oct(unsigned int num);
-int		ft_print_hex(unsigned int num, const char format);
-int		ft_print_uint(unsigned int num);
+int	ft_printf(const char *format, ...);
 
 #endif
