@@ -22,6 +22,17 @@
 
 # define FLAGS "#0- +"
 
+typedef struct		s_data
+{
+	bool		dash;
+	bool		hash;
+	bool		plus;
+	bool		space;
+}			t_data;
+
 int	ft_printf(const char *format, ...);
+int	print(va_list ap, t_data *info);
+int	prefix(const char *format, t_data *info);
+void	init_data(t_data *info);
 
 #endif
