@@ -14,5 +14,17 @@
 
 int	main(void)
 {
+	char	c;
+	char	*str;
+
+	c = 'c';
+	str = "str";
+	printf("Character\n");
+	printf("OG_printf: %c\n", c);
+	ft_printf("FT_printf: %c\n\n", c);
+
+	printf("String\n");
+	printf("OG_printf: %s\n", str);
+	ft_printf("FT_printf: %s\n\n", str);
 	return (1);
 }

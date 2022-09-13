@@ -15,9 +15,13 @@ NAME = libftprintf.a
 
 SRCS_DIR = sources/
 SRCS =	ft_printf.c \
-	prefix.c \
+	get_modifiers.c \
 	utilities.c \
-	print.c \
+	printer.c \
+	check.c \
+	print_alternative.c \
+	print_char.c \
+	print_str.c \
 
 INCLS = -I./libft -I./includes
 

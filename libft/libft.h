@@ -70,5 +70,6 @@ void	ft_putnbr_fd(int n, int fd);
 size_t	ft_intlen(int i);
 int		ft_srqt(int x);
 char	*ft_itoa(int i);
+char	*ft_strndup(char *str, int size);
 
 #endif

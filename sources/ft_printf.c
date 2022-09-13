@@ -12,41 +12,59 @@
 
 #include "ft_printf.h"
 
-int	get_next_specifier(const char *format, va_list ap)
+static int	validate(t_data *info)
 {
-	int	print_length;
-	t_data	*info;
-	int	len;
+	int	i;
 
-	print_length = 0;
-	len = 0;
-	if (*format++ == '%')
+	i = info->i + 1;
+	while (!ft_strchr("cspdiouxXfF%", (int)info->c_fmt[i]))
+		i++;
+	if (info->c_fmt[i] != '\0')
+		return (1);
+	return (0);
+}
+
+static int	parse(t_data *info)
+{
+	int	valid;
+
+	valid = 0;
+	if (ft_strcmp(info->c_fmt, "%") == 0)
+		return (0);
+	while (info->c_fmt[info->i] != '\0')
 	{
-		init_data(info);
-		len = prefix(format, info);
-		while (len--)
-			format++;
-		print(info, ap);
+		if (info->c_fmt[info->i] == '%')	
+		{
+			valid = validate(info);
+			if (valid == 0)
+				return (0);
+			reset_data(info);
+			get_modifiers(info);
+		}
+		else
+		{
+			write (1, &info->c_fmt[info->i], 1);
+			info->len++;
+		}
+		info->i++;
 	}
-	else
-	{
-		write(1, &format, 1);
-	}
-	return (print_length);
+	return (info->len);
 }
 
 int	ft_printf(const char *format, ...)
 {
-	va_list		ap;
-	int		print_length;
-	
-	print_length = 0;
-	va_start(ap, format);	
-	while (*format)
+	t_data	*info;
+
+	if (!(info = (t_data *)malloc(sizeof(t_data))))
+		return (-1);
+	info->fmt = format;
+	info = init_data(info);
+	if (format)
 	{
-		print_length += get_next_specifier(format, ap);
-		format++;
+		va_start(info->args, format);
+		info->len = parse(info);
+		va_end(info->args);
 	}
-	va_end(ap);
-	return (print_length);
+	free(info);
+	return (info->len);
 }
