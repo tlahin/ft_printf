@@ -14,9 +14,9 @@ t_data	*reset_data(t_data *info)
 	info->prefix[3] = '\0';
 	info->prefix[4] = '\0';
 	info->prefix[5] = '\0';
-	info->len_flags[0] = '\0';
-	info->len_flags[1] = '\0';
-	info->len_flags[2] = '\0';
+	info->length_flags[0] = '\0';
+	info->length_flags[1] = '\0';
+	info->length_flags[2] = '\0';
 	return (info);
 }
 
@@ -27,7 +27,7 @@ t_data	*init_data(t_data *info)
 	info->padding = 0;
 	info->s_len = 0;
 	info->format_flags = "#0-+ ";
-	info->a_flags = "lhL";
+	info->arg_flags = "lhL";
 	info->spec_flags = "cspdiouxXfF%";
 	info->hex_chars = "0123456789abcdef";
 	info->c_fmt = (char *)info->fmt;

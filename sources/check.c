@@ -2,6 +2,43 @@
 
 #include "ft_printf.h"
 
+t_data *check_precision(t_data *info)
+{
+	if (info->srch_fmt[info->i] == '.')
+	{
+		info->prec = 0;
+		info->i++;
+	}
+	while (ft_isdigit(info->srch_fmt[info->i]))
+	{
+		info->prec *= 10;
+		info->prec += (info->srch_fmt[info->i] - 48);
+		info->i++;
+	}
+	return (info);  
+}
+
+t_data	*check_argument(t_data *info)
+{
+	size_t i;
+	size_t j;
+
+	i = 0;
+	j = 0;
+	while (info->arg_flags[i] != '\0')
+	{
+		while (info->arg_flags[i] == info->srch_fmt[info->i])
+		{
+			info->length_flags[j] = info->srch_fmt[info->i];
+			info->length_flags[j + 1] = '\0';
+			j++;
+			info->i++;
+		}
+		i++;
+	}
+	return (info);
+}
+
 t_data	*check_specifier(t_data *info)
 {
 	int i;

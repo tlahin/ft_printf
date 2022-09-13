@@ -16,12 +16,17 @@ NAME = libftprintf.a
 SRCS_DIR = sources/
 SRCS =	ft_printf.c \
 	get_modifiers.c \
-	utilities.c \
+	utilities_1.c \
+	utilities_2.c \
 	printer.c \
 	check.c \
 	print_alternative.c \
 	print_char.c \
 	print_str.c \
+	print_pointer.c \
+	print_integer.c \
+	caster.c \
+	max.c \
 
 INCLS = -I./libft -I./includes
 

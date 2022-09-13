@@ -9,8 +9,10 @@ t_data	*get_modifiers(t_data *info)
         check_prefix(info);
     if (info->srch_fmt[info->i] != '\0')
         check_width(info);
-    //precision
-    //length
+    if (info->srch_fmt[info->i] != '\0')
+        check_precision(info);
+    if (info->srch_fmt[info->i] != '\0')
+        check_argument(info);
     if (info->srch_fmt[info->i] != '\0')
         check_specifier(info);
     if (info->srch_fmt[info->i] != '\0')
