@@ -33,7 +33,7 @@ void    put_simple_di(t_data *info, intmax_t number)
     }
 }
 
-void    put_di(t_data *info, int zero, int negative)
+void    put_di(t_data *info, int zero, bool negative)
 {
     if (info->prefix[0] != '-')
 		print_alternative(info, info->width - zero - info->s_len, ' ');
@@ -46,7 +46,7 @@ void    put_di(t_data *info, int zero, int negative)
     print_alternative(info, zero, '0');
 }
 
-static int      get_zero(t_data *info, int negative)
+static int      get_zero(t_data *info, bool negative)
 {
 	int			zero;
 
@@ -80,16 +80,16 @@ t_data  *print_integer(t_data *info)
 {
     long long   number;
     int         zero;
-    int        negative;
+    bool        negative;
 
-    number = get_di(info);
+    number = cast_di(info);
     negativity(info, number);
     if (number == 0 && info->prec == 0)
     {
         put_simple_di(info, number);
         return (info);
     }
-    negative = (number < 0) ? 1 : 0;
+    negative = (number < 0) ? true : false;
     info->s_len = number == 0 ? 1 : ft_number_size(number);
     number *= (negative && number != (-9223372036854775807 - 1)) ? -1 : 1;
     zero = get_zero(info, negative);

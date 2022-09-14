@@ -25,6 +25,8 @@ SRCS =	ft_printf.c \
 	print_str.c \
 	print_pointer.c \
 	print_integer.c \
+	print_octal.c \
+	print_hex.c \
 	caster.c \
 	max.c \
 

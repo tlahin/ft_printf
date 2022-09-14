@@ -19,7 +19,7 @@ int	main(void)
 	char	*ptr;
 	int		i;
 
-	c = 'a';
+	c = 'A';
 	str = "str";
 	ptr = str;
 	i = c;
@@ -37,21 +37,22 @@ int	main(void)
 
 	printf("Integer 'd'\n");
 	printf("OG_printf: %d\n", i);
-	ft_printf("FT_printf: %d\n", i);
+	ft_printf("FT_printf: %d\n\n", i);
+
 	printf("Integer 'i'\n");
 	printf("OG_printf: %i\n", i);
 	ft_printf("FT_printf: %i\n\n", i);
 
 	printf("Octal 'o'\n");
-	printf("OG_printf: %o\n", i);
-	ft_printf("FT_printf: %o\n", i);
+	printf("OG_printf: %#o\n", i);
+	ft_printf("FT_printf: %#o\n\n", i);
 
 	printf("small Hexa 'x'\n");
-	printf("OG_printf: %x\n", i*123851);
-	ft_printf("FT_printf: %x\n", i*123851);
+	printf("OG_printf: %#x\n", i*123851);
+	ft_printf("FT_printf: %#x\n\n", i*123851);
 
 	printf("big Hexa 'X'\n");
-	printf("OG_printf: %X\n", i*123851);
-	ft_printf("FT_printf: %X`\n", i*123851);
+	printf("OG_printf: %#X\n", i*123851);
+	ft_printf("FT_printf: %#X`\n\n", i*123851);
 	return (1);
 }

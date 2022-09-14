@@ -17,6 +17,10 @@ t_data	*printer(t_data *info)
 			print_pointer(info);
 		else if (*specifier == 'd' || *specifier == 'i' )
 			print_integer(info);
+		else if (*specifier == 'o')
+			print_octal(info);
+		else if (*specifier == 'x' || *specifier == 'X')
+			print_hex(info);
 		else
 			printf("Not implemented yet\n");
 	}

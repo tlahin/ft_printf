@@ -54,13 +54,14 @@ t_data  *print_char(t_data *info);
 t_data	*print_str(t_data *info);
 t_data  *print_pointer(t_data *info);
 t_data  *print_integer(t_data *info);
+t_data  *print_octal(t_data *info);
 t_data  *print_alternative(t_data *info, int amount, int c);
 
 t_data	*check_specifier(t_data *info);
 t_data	*check_argument(t_data *info);
 t_data	*check_prefix(t_data *info);
 t_data  *check_width(t_data *info);
-t_data *check_precision(t_data *info);
+t_data	*check_precision(t_data *info);
 
 char	*ft_itoa_base(intmax_t number, int base);
 int		ft_number_size_base(intmax_t number, int base);
@@ -69,7 +70,8 @@ char	*ft_itoa_uintmax(uintmax_t n);
 int		ft_intlen_max(uintmax_t number);
 
 
-intmax_t    get_di(t_data *info);
+intmax_t	cast_di(t_data *info);
+uintmax_t   cast_xou(t_data *info);
 
 void	max(t_data *info);
 void	put_max(void);
