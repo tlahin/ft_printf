@@ -59,14 +59,14 @@ t_data	*print_pointer(t_data *info)
 	info->s_len = ft_strlen(tmp);
 	zero = do_p(info);
 	if (info->prefix[0] != '-')
-		print_alternative(info, info->width - info->s_len - zero - 2, ' ');
+		print_alternative(info, ' ', info->width - info->s_len - zero - 2);
 	write(1, "0x", 2);
-	print_alternative(info, zero, '0');
+	print_alternative(info, '0', zero);
 	info->len += 2;
 	handle_str(info, tmp);
 	info->len += info->s_len;
 	if (info->prefix[0] == '-')
-		print_alternative(info, info->width - info->s_len - zero - 2, ' ');
+		print_alternative(info, ' ', info->width - info->s_len - zero - 2);
 	free(tmp);
 	return (info);
 }

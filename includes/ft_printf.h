@@ -56,7 +56,7 @@ t_data		*print_pointer(t_data *info);
 t_data		*print_integer(t_data *info);
 t_data		*print_octal(t_data *info);
 t_data		*print_hex(t_data *info);
-t_data		*print_alternative(t_data *info, int amount, int c);
+t_data		*print_alternative(t_data *info, int c, int amount);
 
 t_data		*check_specifier(t_data *info);
 t_data		*check_argument(t_data *info);

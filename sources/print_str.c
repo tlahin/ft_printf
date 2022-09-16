@@ -28,12 +28,12 @@ t_data	*print_str(t_data *info)
 		tmp = ft_strndup("(null)", info->prec);
 	len = ft_strlen(tmp);
 	if (info->prefix[0] != '-' && info->prefix[4] == 0)
-		print_alternative(info, info->width - len, '0');
+		print_alternative(info, '0', info->width - len);
 	else if (info->prefix[0] != '-')
-		print_alternative(info, info->width - len, ' ');
+		print_alternative(info, ' ' info->width - len);
 	ft_putstr(tmp);
 	if (info->prefix[0] == '-')
-		print_alternative(info, info->width - len, ' ');
+		print_alternative(info, ' ', info->width - len);
 	info->len += ft_strlen(tmp);
 	free(tmp);
 	return (info);
