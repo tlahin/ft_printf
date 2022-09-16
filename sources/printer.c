@@ -17,7 +17,7 @@ t_data	*printer(t_data *info)
 	char	*specifier;
 
 	specifier = &info->specifier;
-	if (ft_strchr("cspxXdioufF%", (int)info->srch_fmt[info->i]))
+	if (ft_strchr("cspdiouxXf%", (int)info->srch_fmt[info->i]))
 	{
 		if (*specifier == 'c')
 			print_char(info);
@@ -36,7 +36,7 @@ t_data	*printer(t_data *info)
 		else if (*specifier == 'f')
 			print_float(info);
 		else
-			printf("Not implemented yet\n");
+			print_else(info);
 	}
 	return (info);
 }

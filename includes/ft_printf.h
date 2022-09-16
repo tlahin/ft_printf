@@ -59,6 +59,7 @@ t_data		*print_octal(t_data *info);
 t_data		*print_hex(t_data *info);
 t_data  	*print_unsigned(t_data *info);
 t_data  	*print_float(t_data *info);
+void    	print_else(t_data *info);
 t_data		*print_alternative(t_data *info, int c, int amount);
 
 t_data		*check_specifier(t_data *info);
