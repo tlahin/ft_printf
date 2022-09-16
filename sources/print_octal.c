@@ -36,20 +36,33 @@ static int	collect_o(t_data *info, uintmax_t number)
 	return (not_empty);
 }
 
+static char	*octal_helper(t_data *info, uintmax_t number, char *tmp)
+{
+	if (number == 0)
+		tmp = ft_strdup("0");
+	else
+		tmp = ft_itoa_base(number, 8);
+	if (number == 0)
+		info->s_len += 1;
+	else
+		info->s_len = ft_strlen(tmp);
+	return (tmp);
+}
+
 t_data	*print_octal(t_data *info)
 {
 	char		*tmp;
 	uintmax_t	number;
 	int			not_empty;
 
+	tmp = "";
 	number = cast_xou(info);
 	if (number == 0 && info->prec == 0 && info->prefix[3] != '#')
 	{
 		print_alternative(info, ' ', info->width);
 		return (info);
 	}
-	tmp = number == 0 ? ft_strdup("0") : ft_itoa_base(number, 8);
-	info->s_len = number == 0 ? 1 : ft_strlen(tmp);
+	tmp = octal_helper(info, number, tmp);
 	not_empty = collect_o(info, number);
 	if (info->prefix[0] != '-')
 		print_alternative(info, ' ', info->width - not_empty);

@@ -42,6 +42,7 @@ typedef struct s_data
 	char		*arg_flags;
 	char		*spec_flags;
 	char		get_plus;
+	bool		nega;
 }				t_data;
 
 int			ft_printf(const char *format, ...);
@@ -76,5 +77,7 @@ uintmax_t	cast_xou(t_data *info);
 void		max(t_data *info);
 void		put_max(void);
 void		putnumbermax(intmax_t number);
+void		put_simple_di(t_data *info, intmax_t number);
+void		put_di(t_data *info, int zero);
 
 #endif

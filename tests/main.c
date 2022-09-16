@@ -20,7 +20,7 @@ int	main(void)
 	int		i;
 
 	c = 'A';
-	str = "str";
+	str = "This/tis a string BTW";
 	ptr = str;
 	i = c;
 	printf("Character 'c'\n");

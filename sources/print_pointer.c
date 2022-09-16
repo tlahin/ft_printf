@@ -46,6 +46,15 @@ static t_data	*handle_str(t_data *info, char *tmp)
 	return (info);
 }
 
+static char	*pointer_helper(uintmax_t number, char *tmp)
+{
+	if (number == 0)
+		tmp = ft_strdup("0");
+	else
+		tmp = ft_itoa_base(number, 16);
+	return (tmp);
+}
+
 t_data	*print_pointer(t_data *info)
 {
 	char		*tmp;
@@ -53,9 +62,10 @@ t_data	*print_pointer(t_data *info)
 	int			zero;
 
 	zero = 0;
+	tmp = "";
 	number = (unsigned long)va_arg(info->args, unsigned long int);
 	number = (uintmax_t)number;
-	tmp = number == 0 ? ft_strdup("0") : ft_itoa_base(number, 16);
+	tmp = pointer_helper(number, tmp);
 	info->s_len = ft_strlen(tmp);
 	zero = do_p(info);
 	if (info->prefix[0] != '-')

@@ -17,8 +17,12 @@ int	ft_intlen_max(uintmax_t number)
 	int	len;
 
 	len = 1;
-	while ((number /= 10) > 0)
+	number = number / 10;
+	while (number > 0)
+	{
+		number /= 10;
 		len++;
+	}
 	return (len);
 }
 
@@ -29,8 +33,12 @@ int	ft_number_size(intmax_t number)
 	if (number < 0)
 		number *= -1;
 	len = 1;
-	while ((number /= 10) > 0)
+	number = number / 10;
+	while (number > 0)
+	{
+		number /= 10;
 		len++;
+	}
 	return (len);
 }
 
@@ -74,7 +82,7 @@ char	*ft_itoa_base(intmax_t number, int base)
 	int		j;
 
 	j = ft_number_size_base(number, base);
-	new = (char*)malloc(sizeof(char) * j + 1);
+	new = (char *)malloc(sizeof(char) * j + 1);
 	if (!new)
 		return (NULL);
 	if (number < 0)
@@ -82,7 +90,10 @@ char	*ft_itoa_base(intmax_t number, int base)
 	new[j] = '\0';
 	while (j--)
 	{
-		new[j] = (number % base < 10) ? number % base + '0' : number % base + 'a' - 10;
+		if (number % base > 10)
+			new[j] = number % base + '0';
+		else
+			new[j] = number % base + 'a' - 10;
 		number /= base;
 	}
 	return (new);

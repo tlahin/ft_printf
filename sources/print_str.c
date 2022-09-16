@@ -30,7 +30,7 @@ t_data	*print_str(t_data *info)
 	if (info->prefix[0] != '-' && info->prefix[4] == 0)
 		print_alternative(info, '0', info->width - len);
 	else if (info->prefix[0] != '-')
-		print_alternative(info, ' ' info->width - len);
+		print_alternative(info, ' ', info->width - len);
 	ft_putstr(tmp);
 	if (info->prefix[0] == '-')
 		print_alternative(info, ' ', info->width - len);
