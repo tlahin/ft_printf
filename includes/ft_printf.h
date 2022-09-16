@@ -65,6 +65,7 @@ t_data  	*print_unsigned(t_data *info);
 t_data  	*print_float(t_data *info);
 void    	print_else(t_data *info);
 t_data		*print_alternative(t_data *info, int c, int amount);
+t_data		*padding(t_data *info, int middle, int hash, uintmax_t number);
 
 char		*ft_itoa_base(intmax_t number, int base);
 int			ft_number_size_base(intmax_t number, int base);
@@ -88,4 +89,5 @@ t_data		*reset_data(t_data *info);
 //utilities_1
 void	put_simple_di(t_data *info, intmax_t number);
 void	put_di(t_data *info, int zero);
+
 #endif

@@ -2,11 +2,22 @@
 
 #include "ft_printf.h"
 
-static void put_f(t_data *info, long double number, int empty,\
+static int  collect_f(t_data *info, long double number, int not_empty)
+{
+	if (info->prec == 0 && info->prefix[3] == '#')
+		not_empty++;
+	if (info->prefix[2] == ' ' && number >= 0)
+		not_empty++;
+	if (number < 0 || (info->prefix[1] == '+' && number >= 0))
+		not_empty++;
+	return (not_empty);
+}
+
+static void put_f(t_data *info, long double number, int not_empty,\
                 int zero)
 {
 	if (!info->prefix[0] && !info->prefix[4])
-		print_alternative(info, ' ', info->width - empty);
+		print_alternative(info, ' ', info->width - not_empty);
 	if (info->prefix[2] == ' ' && number >= 0 && info->width)
 		print_alternative(info, ' ', 1);
 	if (number < 0)
@@ -17,22 +28,11 @@ static void put_f(t_data *info, long double number, int empty,\
 		print_alternative(info, '0', zero);
 }
 
-static int  collect_f(t_data *info, long double number, int empty)
-{
-	if (info->prec == 0 && info->prefix[3] == '#')
-		empty++;
-	if (info->prefix[2] == ' ' && number >= 0)
-		empty++;
-	if (number < 0 || (info->prefix[1] == '+' && number >= 0))
-		empty++;
-	return (empty);
-}
-
 t_data  *print_float(t_data *info)
 {
     long double     number;
     char            *flot;
-    int             empty;
+    int             not_empty;
     int             zero;
 
     zero = 0;
@@ -40,17 +40,17 @@ t_data  *print_float(t_data *info)
     if (number < 0)
         info->len--;
     flot = ft_ftoa(number, info->prec, '.');
-    empty = ft_strlen(flot);
-    empty = collect_f(info, number, empty);
-    if (!info->prefix[0] && info->width > info->prec && info->width > empty)
-        zero = info->width - empty;
-    put_f(info, number, empty, zero);
+    not_empty = ft_strlen(flot);
+    not_empty = collect_f(info, number, not_empty);
+    if (!info->prefix[0] && info->width > info->prec && info->width > not_empty)
+        zero = info->width - not_empty;
+    put_f(info, number, not_empty, zero);
     ft_putstr(flot);
     if (info->prefix[3] && info->prec == 0)
         print_alternative(info, '.', 1);
     if (info->prefix[0] == '-')
-        print_alternative(info, ' ', info->width - empty);
-    info->len += empty;
+        print_alternative(info, ' ', info->width - not_empty);
+    info->len += not_empty;
     free(flot);
     return (info);
 }

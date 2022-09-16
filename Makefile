@@ -30,6 +30,7 @@ SRCS =	ft_printf.c \
 	print_unsigned.c \
 	print_float.c \
 	print_else.c \
+	padding.c \
 	caster.c \
 	max.c \
 

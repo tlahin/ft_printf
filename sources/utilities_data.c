@@ -39,7 +39,7 @@ t_data	*init_data(t_data *info)
 	info->s_len = 0;
 	info->format_flags = "#0-+ ";
 	info->arg_flags = "lhL";
-	info->spec_flags = "cspdiouxXfF%";
+	info->spec_flags = "cspdiouxXf%";
 	info->hex_chars = "0123456789abcdef";
 	info->c_fmt = (char *)info->fmt;
 	info->srch_fmt = (char *)info->fmt;

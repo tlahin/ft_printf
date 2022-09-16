@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-t_data	*pre_length(t_data *info, intmax_t number)
+static t_data	*pre_length(t_data *info, intmax_t number)
 {
 	if (number >= 0)
 	{
