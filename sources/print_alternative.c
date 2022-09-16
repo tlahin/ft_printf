@@ -1,14 +1,25 @@
-//header
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_alternative.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tlahin <tlahin@student.hive.fi>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/15 12:31:40 by tlahin            #+#    #+#             */
+/*   Updated: 2022/09/15 12:31:43 by tlahin           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "ft_printf.h"
 
 t_data	*print_alternative(t_data *info, int amount, int c)
 {
-	char *new;
+	char	*new;
 
 	if (amount > 0)
 	{
-		if (!(new = (char*)malloc(sizeof(char) * amount + 1)))
+		new = (char *)malloc(sizeof(char) * amount + 1);
+		if (!new)
 			exit(-1);
 		ft_memset(new, c, amount);
 		write(1, new, amount);

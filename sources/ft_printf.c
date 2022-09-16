@@ -33,7 +33,7 @@ static int	parse(t_data *info)
 		return (0);
 	while (info->c_fmt[info->i] != '\0')
 	{
-		if (info->c_fmt[info->i] == '%')	
+		if (info->c_fmt[info->i] == '%')
 		{
 			valid = validate(info);
 			if (valid == 0)
@@ -55,7 +55,8 @@ int	ft_printf(const char *format, ...)
 {
 	t_data	*info;
 
-	if (!(info = (t_data *)malloc(sizeof(t_data))))
+	info = (t_data *)malloc(sizeof(t_data));
+	if (!info)
 		return (-1);
 	info->fmt = format;
 	info = init_data(info);

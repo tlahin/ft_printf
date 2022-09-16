@@ -1,10 +1,20 @@
-//header
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utilities_2.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tlahin <tlahin@student.hive.fi>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/15 12:25:13 by tlahin            #+#    #+#             */
+/*   Updated: 2022/09/15 12:25:14 by tlahin           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_intlen_max(uintmax_t number)
+int	ft_intlen_max(uintmax_t number)
 {
-	int len;
+	int	len;
 
 	len = 1;
 	while ((number /= 10) > 0)
@@ -12,9 +22,9 @@ int		ft_intlen_max(uintmax_t number)
 	return (len);
 }
 
-int		ft_number_size(intmax_t number)
+int	ft_number_size(intmax_t number)
 {
-	int len;
+	int	len;
 
 	if (number < 0)
 		number *= -1;
@@ -24,7 +34,7 @@ int		ft_number_size(intmax_t number)
 	return (len);
 }
 
-int		ft_number_size_base(intmax_t number, int base)
+int	ft_number_size_base(intmax_t number, int base)
 {
 	int	len;
 
@@ -40,11 +50,12 @@ int		ft_number_size_base(intmax_t number, int base)
 
 char	*ft_itoa_uintmax(uintmax_t n)
 {
-	char			*new;
-	int				len;
+	char	*new;
+	int		len;
 
 	len = ft_intlen_max(n) + 1;
-	if (!(new = ft_strnew(len + 1)))
+	new = ft_strnew(len + 1);
+	if (!new)
 		return (NULL);
 	new[len] = '\0';
 	len--;
@@ -63,7 +74,8 @@ char	*ft_itoa_base(intmax_t number, int base)
 	int		j;
 
 	j = ft_number_size_base(number, base);
-	if (!(new = (char*)malloc(sizeof(char) * j + 1)))
+	new = (char*)malloc(sizeof(char) * j + 1);
+	if (!new)
 		return (NULL);
 	if (number < 0)
 		new[0] = '-';

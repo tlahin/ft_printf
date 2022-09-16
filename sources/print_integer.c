@@ -1,52 +1,66 @@
-//header
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_integer.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tlahin <tlahin@student.hive.fi>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/15 12:31:26 by tlahin            #+#    #+#             */
+/*   Updated: 2022/09/15 12:31:28 by tlahin           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "ft_printf.h"
 
-t_data  *negativity(t_data *info, intmax_t number)
+t_data	*negativity(t_data *info, intmax_t number)
 {
-    if (number >= 0)
-    {
-        if (info->prefix[1] == '+')
-            info->get_plus = '+';
-        else if (info->prefix[2] == ' ')
-            info->get_plus = ' ';
-        else
-            info->get_plus = '\0';
-    }
-    return (info);
+	if (number >= 0)
+	{
+		if (info->prefix[1] == '+')
+			info->get_plus = '+';
+		else if (info->prefix[2] == ' ')
+			info->get_plus = ' ';
+		else
+			info->get_plus = '\0';
+	}
+	if (number == 0)
+		info->s_len += 1;
+	else
+		info->s_len += ft_number_size(number);
+	return (info);
 }
 
-void    put_simple_di(t_data *info, intmax_t number)
+void	put_simple_di(t_data *info, intmax_t number)
 {
-    if (number == 0 && info->prec == 0)
-    {
-        if (info->get_plus != '\0')
-            info->width--;
-        if (info->prefix[0] != '-')
-            print_alternative(info, info->width, ' ');
-        if (info->prefix[1] == '+')
-            print_alternative(info, 1, '+');
-        else if (info->prefix[2] == ' ')
-            print_alternative(info, 1, ' ');
-        if (info->prefix[1] == '-')
-            print_alternative(info, info->width, ' ');
-    }
+	if (number == 0 && info->prec == 0)
+	{
+		if (info->get_plus != '\0')
+			info->width--;
+		if (info->prefix[0] != '-')
+			print_alternative(info, info->width, ' ');
+		if (info->prefix[1] == '+')
+			print_alternative(info, 1, '+');
+		else if (info->prefix[2] == ' ')
+			print_alternative(info, 1, ' ');
+		if (info->prefix[1] == '-')
+			print_alternative(info, info->width, ' ');
+	}
 }
 
-void    put_di(t_data *info, int zero, bool negative)
+void	put_di(t_data *info, int zero, bool negative)
 {
-    if (info->prefix[0] != '-')
+	if (info->prefix[0] != '-')
 		print_alternative(info, info->width - zero - info->s_len, ' ');
-    if (negative)
-        write(1, "-", 1);
-    if (info->get_plus != '\0')
-    {
-        write(1, &info->get_plus, 1);
-    }
-    print_alternative(info, zero, '0');
+	if (negative)
+		write(1, "-", 1);
+	if (info->get_plus != '\0')
+	{
+		write(1, &info->get_plus, 1);
+	}
+	print_alternative(info, zero, '0');
 }
 
-static int      get_zero(t_data *info, bool negative)
+static int	get_zero(t_data *info, bool negative)
 {
 	int			zero;
 
@@ -60,7 +74,8 @@ static int      get_zero(t_data *info, bool negative)
 		else if (info->prec == -1)
 		{
 			zero = info->width - info->s_len;
-			zero -= negative ? 1 : 0;
+			if (negative)
+				zero -= 1;
 			if (info->prefix[2] == ' ' && info->prefix[1] != '+' && !negative)
 				zero -= 1;
 		}
@@ -75,32 +90,31 @@ static int      get_zero(t_data *info, bool negative)
 	return (zero);
 }
 
-
-t_data  *print_integer(t_data *info)
+t_data	*print_integer(t_data *info)
 {
-    long long   number;
-    int         zero;
-    bool        negative;
+	long long	number;
+	int			zero;
+	bool		negative;
 
-    number = cast_di(info);
-    negativity(info, number);
-    if (number == 0 && info->prec == 0)
-    {
-        put_simple_di(info, number);
-        return (info);
-    }
-    negative = (number < 0) ? true : false;
-    info->s_len = number == 0 ? 1 : ft_number_size(number);
-    number *= (negative && number != (-9223372036854775807 - 1)) ? -1 : 1;
-    zero = get_zero(info, negative);
-    info->s_len += info->get_plus != '\0' || negative ? 1 : 0;
-    put_di(info, zero, negative);
-   	if (number == -9223372036854775807 - 1)
+	number = cast_di(info);
+	negativity(info, number);
+	if (number == 0 && info->prec == 0)
+	{
+		put_simple_di(info, number);
+		return (info);
+	}
+	//is number negative?
+	//number * -1 : 1 if negative and number != (-9223372036854775807 - 1)
+	zero = get_zero(info, negative);
+	if (info->get_plus != '\0' || negative)
+		info->s_len += 1;
+	put_di(info, zero, negative);
+	if (number == -9223372036854775807 - 1)
 		max(info);
 	else
 		putnumbermax(number);
-    if (info->prefix[0] == '-')
-        print_alternative(info, info->width - zero - info->s_len, ' ');
-    info->len += info->s_len;
-    return (info);
+	if (info->prefix[0] == '-')
+		print_alternative(info, info->width - zero - info->s_len, ' ');
+	info->len += info->s_len;
+	return (info);
 }
