@@ -17,7 +17,7 @@ static int	validate(t_data *info)
 	int	i;
 
 	i = info->i + 1;
-	while (!ft_strchr("cspdiouxXfF%", (int)info->c_fmt[i]))
+	while (!ft_strchr("cspdiouxXf%", (int)info->c_fmt[i]))
 		i++;
 	if (info->c_fmt[i] != '\0')
 		return (1);

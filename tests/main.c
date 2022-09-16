@@ -52,5 +52,6 @@ int	main(void)
 	ft_printf("FT_printf: %u\n\n", i * 123851);
 	printf("Float 'f'\n");
 	printf("OG_printf: %f\n", i * 1.123);
-	ft_printf("FT_printf: %f\n\n", i * 1.123);return (1);
+	ft_printf("FT_printf: %f\n\n", i * 1.123);
+	return (1);
 }

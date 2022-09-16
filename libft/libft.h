@@ -76,5 +76,6 @@ char	*ft_itoa_uintmax(uintmax_t number);
 char    *ftoa(long double number, int prec, char dot);
 char	*ft_strndup(char *str, int size);
 void    ft_str_toupper(char *str);
+int	    ft_number_size_base(intmax_t number, int base);
 
 #endif
