@@ -31,6 +31,10 @@ t_data	*printer(t_data *info)
 			print_octal(info);
 		else if (*specifier == 'x' || *specifier == 'X')
 			print_hex(info);
+		else if (*specifier == 'u')
+			print_unsigned(info);
+		else if (*specifier == 'f')
+			print_float(info);
 		else
 			printf("Not implemented yet\n");
 	}

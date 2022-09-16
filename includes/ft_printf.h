@@ -57,6 +57,8 @@ t_data		*print_pointer(t_data *info);
 t_data		*print_integer(t_data *info);
 t_data		*print_octal(t_data *info);
 t_data		*print_hex(t_data *info);
+t_data  	*print_unsigned(t_data *info);
+t_data  	*print_float(t_data *info);
 t_data		*print_alternative(t_data *info, int c, int amount);
 
 t_data		*check_specifier(t_data *info);
@@ -70,14 +72,17 @@ int			ft_number_size_base(intmax_t number, int base);
 int			ft_number_size(intmax_t number);
 char		*ft_itoa_uintmax(uintmax_t n);
 int			ft_intlen_max(uintmax_t number);
+char    	*ft_ftoa(long double number, int prec, char dot);
 
 intmax_t	cast_di(t_data *info);
 uintmax_t	cast_xou(t_data *info);
+long double	cast_flot(t_data *info);
 
 void		max(t_data *info);
 void		put_max(void);
 void		putnumbermax(intmax_t number);
 void		put_simple_di(t_data *info, intmax_t number);
 void		put_di(t_data *info, int zero);
+
 
 #endif

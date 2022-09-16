@@ -15,6 +15,7 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdint.h>
 
 void	ft_putchar(char c);
 void	ft_putnbr(int n);
@@ -70,6 +71,10 @@ void	ft_putnbr_fd(int n, int fd);
 size_t	ft_intlen(int i);
 int		ft_srqt(int x);
 char	*ft_itoa(int i);
+int		ft_intlen_max(uintmax_t nbr);
+char	*ft_itoa_uintmax(uintmax_t number);
+char    *ftoa(long double number, int prec, char dot);
 char	*ft_strndup(char *str, int size);
+void    ft_str_toupper(char *str);
 
 #endif

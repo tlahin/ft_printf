@@ -90,7 +90,7 @@ char	*ft_itoa_base(intmax_t number, int base)
 	new[j] = '\0';
 	while (j--)
 	{
-		if (number % base > 10)
+		if ((number % base) < 10)
 			new[j] = number % base + '0';
 		else
 			new[j] = number % base + 'a' - 10;

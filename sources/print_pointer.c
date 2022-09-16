@@ -12,26 +12,26 @@
 
 #include "ft_printf.h"
 
-static int	do_p(t_data *info)
+static int	zeroer(t_data *info)
 {
-	int		zeroes;
+	int		zero;
 
-	zeroes = 0;
+	zero = 0;
 	if (info->prefix[4] != '0')
 	{
 		if (info->prec > 0 && info->prec > info->s_len)
-			zeroes = info->prec - info->s_len;
+			zero = info->prec - info->s_len;
 		else if (info->prec == -1 && info->width > info->s_len)
-			zeroes = 0;
+			zero = 0;
 	}
 	else if (info->prefix[4] == '0')
 	{
 		if (info->width > info->s_len && info->prec == -1)
-			zeroes = info->width - info->s_len - 2;
+			zero = info->width - info->s_len - 2;
 		else if (info->width > info->s_len && info->prec > 0)
-			zeroes = info->prec - info->s_len;
+			zero = info->prec - info->s_len;
 	}
-	return (zeroes);
+	return (zero);
 }
 
 static t_data	*handle_str(t_data *info, char *tmp)
@@ -67,7 +67,7 @@ t_data	*print_pointer(t_data *info)
 	number = (uintmax_t)number;
 	tmp = pointer_helper(number, tmp);
 	info->s_len = ft_strlen(tmp);
-	zero = do_p(info);
+	zero = zeroer(info);
 	if (info->prefix[0] != '-')
 		print_alternative(info, ' ', info->width - info->s_len - zero - 2);
 	write(1, "0x", 2);

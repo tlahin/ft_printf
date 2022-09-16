@@ -12,6 +12,17 @@
 
 #include "ft_printf.h"
 
+long double	cast_flot(t_data *info)
+{
+	long double	number;
+
+	if (ft_strcmp(info->length_flags, "L") == 0)
+		number = (long double)va_arg(info->args, long double);
+	else
+		number = (double)va_arg(info->args, double);
+	return (number);
+}
+
 uintmax_t	cast_xou(t_data *info)
 {
 	uintmax_t	number;

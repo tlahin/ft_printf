@@ -21,7 +21,7 @@ t_data	*print_alternative(t_data *info, int c, int amount)
 		new = (char *)malloc(sizeof(char) * amount + 1);
 		if (!new)
 			exit(-1);
-		ft_memset(new, amount, c);
+		ft_memset(new, c, amount);
 		write(1, new, amount);
 		info->len += amount;
 		free(new);

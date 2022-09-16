@@ -20,7 +20,7 @@ int	main(void)
 	int		i;
 
 	c = 'A';
-	str = "This/tis a string BTW";
+	str = "This is a string BTW";
 	ptr = str;
 	i = c;
 	printf("Character 'c'\n");
@@ -46,6 +46,11 @@ int	main(void)
 	ft_printf("FT_printf: %#x\n\n", i * 123851);
 	printf("big Hexa 'X'\n");
 	printf("OG_printf: %#X\n", i * 123851);
-	ft_printf("FT_printf: %#X`\n\n", i * 123851);
-	return (1);
+	ft_printf("FT_printf: %#X\n\n", i * 123851);
+	printf("Unsigned integer 'u'\n");
+	printf("OG_printf: %u\n", i * 123851);
+	ft_printf("FT_printf: %u\n\n", i * 123851);
+	printf("Float 'f'\n");
+	printf("OG_printf: %f\n", i * 1.123);
+	ft_printf("FT_printf: %f\n\n", i * 1.123);return (1);
 }

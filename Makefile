@@ -27,6 +27,8 @@ SRCS =	ft_printf.c \
 	print_integer.c \
 	print_octal.c \
 	print_hex.c \
+	print_unsigned.c \
+	print_float.c \
 	caster.c \
 	max.c \
 
