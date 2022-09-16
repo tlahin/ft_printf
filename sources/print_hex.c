@@ -30,11 +30,12 @@ static t_data  *print_0(t_data *info, char specifier, uintmax_t number)
     return (info);
 }
 
-static void put_hex(t_data *info, uintmax_t number, char *tmp)
+static void put_hex(t_data *info, uintmax_t number, int middle, char *tmp)
 {
     if (info->prefix[0] != '-')
         print_alternative(info, ' ', info->padding);
     print_0(info, info->specifier, number);
+    print_alternative(info, '0', middle);
     if (info->specifier == 'X')
         ft_str_toupper(tmp);
     else
@@ -43,7 +44,7 @@ static void put_hex(t_data *info, uintmax_t number, char *tmp)
         print_alternative(info, ' ', info->padding);
 }
 
-static int		collect_middle(t_data *info, uintmax_t number, int s_len, int hash)
+static int  collect_middle(t_data *info, uintmax_t number, int s_len, int hash)
 {
 	int		middle;
 	int		prec;
@@ -91,7 +92,7 @@ t_data	*print_hex(t_data *info)
     info->s_len = ft_strlen(tmp);
     middle = collect_middle(info, number, info->s_len, hash);
     padding(info, middle, hash, number);
-    put_hex(info, number, tmp);
+    put_hex(info, number, middle, tmp);
     info->len += info->s_len;
     free(tmp);
 	return (info);
