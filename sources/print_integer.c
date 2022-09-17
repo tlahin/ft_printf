@@ -53,13 +53,11 @@ static int	zero_helper(t_data *info, int zero)
 
 static int	get_zero(t_data *info)
 {
-	int			zero;
+	int	zero;
 
 	zero = 0;
 	if (info->prefix[4] == '0' && info->prefix[0] != '-')
-	{
 		zero = zero_helper(info, zero);
-	}
 	else if (info->prefix[0] == '-' || info->prefix[4] != '0')
 	{
 		if (info->prec > 0 && info->prec > info->s_len)
