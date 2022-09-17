@@ -48,46 +48,37 @@ typedef struct s_data
 int			ft_printf(const char *format, ...);
 t_data		*get_modifiers(t_data *info);
 t_data		*printer(t_data *info);
-
 t_data		*check_specifier(t_data *info);
 t_data		*check_argument(t_data *info);
 t_data		*check_prefix(t_data *info);
 t_data		*check_width(t_data *info);
 t_data		*check_precision(t_data *info);
-
 t_data		*print_char(t_data *info);
 t_data		*print_str(t_data *info);
 t_data		*print_pointer(t_data *info);
 t_data		*print_integer(t_data *info);
 t_data		*print_octal(t_data *info);
 t_data		*print_hex(t_data *info);
-t_data  	*print_unsigned(t_data *info);
-t_data  	*print_float(t_data *info);
-void    	print_else(t_data *info);
+t_data		*print_unsigned(t_data *info);
+t_data		*print_float(t_data *info);
+void		print_else(t_data *info);
 t_data		*print_alternative(t_data *info, int c, int amount);
 t_data		*padding(t_data *info, int middle, int hash, uintmax_t number);
-
 char		*ft_itoa_base(intmax_t number, int base);
 int			ft_number_size_base(intmax_t number, int base);
 int			ft_number_size(intmax_t number);
 char		*ft_itoa_uintmax(uintmax_t n);
 int			ft_intlen_max(uintmax_t number);
-char    	*ft_ftoa(long double number, int prec, char dot);
-
+char		*ft_ftoa(long double number, int prec, char dot);
 intmax_t	cast_di(t_data *info);
 uintmax_t	cast_xou(t_data *info);
 long double	cast_flot(t_data *info);
-
 void		max(t_data *info);
 void		put_max(void);
 void		putnumbermax(intmax_t number);
-
-//data utils
 t_data		*init_data(t_data *info);
 t_data		*reset_data(t_data *info);
-
-//utilities_1
-void	put_simple_di(t_data *info, intmax_t number);
-void	put_di(t_data *info, int zero);
+void		put_simple_di(t_data *info, intmax_t number);
+void		put_di(t_data *info, int zero);
 
 #endif

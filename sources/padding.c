@@ -1,10 +1,20 @@
-//hdear
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   padding.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tlahin <tlahin@student.hive.fi>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/17 17:22:24 by tlahin            #+#    #+#             */
+/*   Updated: 2022/09/17 17:22:25 by tlahin           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "ft_printf.h"
 
 t_data	*padding(t_data *info, int middle, int hash, uintmax_t number)
 {
-	int prec;
+	int	prec;
 
 	prec = info->prec;
 	if (!number)

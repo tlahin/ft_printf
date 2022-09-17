@@ -27,7 +27,7 @@ t_data	*print_str(t_data *info)
 	else if (info->prec > -1 && !tmp)
 		tmp = ft_strndup("(null)", info->prec);
 	len = ft_strlen(tmp);
-	if (info->prefix[0] != '-' && info->prefix[4] == 0)
+	if (info->prefix[0] != '-' && info->prefix[4] == '0')
 		print_alternative(info, '0', info->width - len);
 	else if (info->prefix[0] != '-')
 		print_alternative(info, ' ', info->width - len);
