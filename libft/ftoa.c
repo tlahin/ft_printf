@@ -1,10 +1,20 @@
-//header
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ftoa.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tlahin <tlahin@student.hive.fi>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/17 17:38:09 by tlahin            #+#    #+#             */
+/*   Updated: 2022/09/17 17:38:11 by tlahin           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "libft.h"
 
 static long double	rounding(long double number, int prec)
 {
-	long double rounding;
+	long double	rounding;
 	int			i;
 
 	i = 0;
@@ -16,9 +26,9 @@ static long double	rounding(long double number, int prec)
 	return (rounding);
 }
 
-static char			*joining(char *whole, char *dec_part)
+static char	*joining(char *whole, char *dec_part)
 {
-	char *joint;
+	char	*joint;
 
 	joint = ft_strjoin(whole, dec_part);
 	free(whole);
@@ -26,7 +36,28 @@ static char			*joining(char *whole, char *dec_part)
 	return (joint);
 }
 
-char    *ft_ftoa(long double number, int prec, char dot)
+static long double	ftoa_helper_1(long double number, int prec)
+{
+	if (prec >= 0)
+		number = rounding(number, prec);
+	else
+		prec = 0;
+	if (number < 0)
+		number *= -1;
+	return (number);
+}
+
+static char	ftoa_helper_2(char *dec_part, char dot, int prec, int i)
+{
+	dec_part = ft_strnew(prec + 1);
+	if (dot && prec > 0)
+		dec_part[i++] = '.';
+	else
+		dec_part[i++] = '\0';
+	return (dec_part[i]);
+}
+
+char	*ft_ftoa(long double number, int prec, char dot)
 {
 	char				*joint;
 	char				*whole;
@@ -34,15 +65,16 @@ char    *ft_ftoa(long double number, int prec, char dot)
 	unsigned long long	dec;
 	int					i;
 
+	dec_part = "";
 	i = 0;
-	prec = prec == -1 ? 6 : prec;
-	number += prec >= 0 ? rounding(number, prec) : 0;
-	number < 0 ? number *= -1 : number * 1;
+	if (prec == -1)
+		prec = 6;
+	number = ftoa_helper_1(number, prec);
 	whole = ft_itoa_uintmax(number);
 	dec = number;
-	number = prec > 0 ? number - dec : 0;
-	dec_part = ft_strnew(prec + 1);
-	dec_part[i++] = (dot && prec > 0) ? '.' : '\0';
+	if (prec > 0)
+		number -= dec;
+	dec_part[i] = ftoa_helper_2(dec_part, dot, prec, i);
 	while (prec-- > 0)
 	{
 		number *= 10;
