@@ -30,14 +30,14 @@ static int	parse(t_data *info)
 
 	valid = 0;
 	if (ft_strcmp(info->c_fmt, "%") == 0)
-		return (0);
+		exit (0);
 	while (info->c_fmt[info->i] != '\0')
 	{
 		if (info->c_fmt[info->i] == '%')
 		{
 			valid = validate(info);
 			if (valid == 0)
-				return (0);
+				exit (0);
 			reset_data(info);
 			get_modifiers(info);
 		}

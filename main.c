@@ -4,9 +4,10 @@
 
 int	main(void)
 {
-	int	real;
+	//int	real;
 	int mine;
 
+	/*
 	printf("\n");
 	real = printf("@moulitest: %#.o %#.0o", 0, 0);
 	printf("\n");
@@ -15,7 +16,8 @@ int	main(void)
 	printf("real_len: %d\n", real);
 	printf("mine_len: %d\n", mine);
 	printf("\n");
-	
+	*/
+	/*
 	real = printf("%d %d", 1, -2);
 	printf("\n");
 	mine = ft_printf("%d %d", 1, -2);
@@ -23,7 +25,8 @@ int	main(void)
 	printf("real_len: %d\n", real);
 	printf("mine_len: %d\n", mine);
 	printf("\n");
-
+	*/
+	/*
 	real = printf("%10s is a string", "this");
 	printf("\n");
 	mine = ft_printf("%10s is a string", "this");
@@ -31,7 +34,8 @@ int	main(void)
 	printf("real_len: %d\n", real);
 	printf("mine_len: %d\n", mine);
 	printf("\n");
-
+	*/
+	/*
 	real = printf("%5.2s is a string", "this"); 
 	printf("\n");
 	mine = ft_printf("%5.2s is a string", "this"); 
@@ -39,7 +43,7 @@ int	main(void)
 	printf("real_len: %d\n", real);
 	printf("mine_len: %d\n", mine);
 	printf("\n");
-
+	*/
 	/*
 	real = printf("%5u", 4294967295);
 	printf("\n");
@@ -76,15 +80,15 @@ int	main(void)
 	printf("mine: %d\n", mine);
 	printf("\n");
 	*/
-	/*
-	real = printf("%");
-	printf("\n");
+	
+	//real = printf("%");
+	printf("here\n");
 	mine = ft_printf("%");
 	printf("\n");
-	printf("real_len: %d\n", real);
+	//printf("real_len: %d\n", real);
 	printf("mine_len: %d\n", mine);
 	printf("\n");
-	*/
+	
 	/*
 	real = printf("%5+d", 42);
 	printf("\n");
