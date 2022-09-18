@@ -19,6 +19,7 @@ t_data	*reset_data(t_data *info)
 	info->specifier = '\0';
 	info->prec = -1;
 	info->width = 0;
+	info->s_len = 0;
 	info->prefix[0] = '\0';
 	info->prefix[1] = '\0';
 	info->prefix[2] = '\0';
