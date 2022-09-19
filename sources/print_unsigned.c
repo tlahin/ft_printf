@@ -27,11 +27,8 @@ static int	collect_u(t_data *info)
 		info->prec = info->width;
 	if (info->s_len <= info->prec && info->prec > 0)
 		not_empty = info->prec;
-	/*
-	prints blanks when its not suppose to
-	if (!info->prefix[0] != '-')
-		print_alternative(info, ' ', info->width);
-	*/
+	if (info->prefix[0] != '-')
+		print_alternative(info, ' ', info->width - not_empty);
 	return (not_empty);
 }
 
@@ -71,7 +68,6 @@ t_data	*print_unsigned(t_data *info)
 	print_u_0(info, number);
 	print_alternative(info, '0', info->prec - info->s_len);
 	ft_putstr(tmp);
-	printf("\nlen: %d\ns_len: %d\n\n", info->len, info->s_len);  //laiton
 	info->len += ft_strlen(tmp);
 	if (info->prefix[0] == '-')
 		print_alternative(info, ' ', info->width - not_empty);
