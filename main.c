@@ -7,9 +7,9 @@ int	main(void)
 	int	real;
 	int mine;
 
-	real = printf("%5u", 65535);
+	real = printf("%5u", 4294967295);
 	printf("\n");
-	mine = ft_printf("%5u", 65535);
+	mine = ft_printf("%5u", 4294967295);
 	printf("\n");
 	printf("OG_len: %d\n", real);
 	printf("FT_len: %d\n", mine);
