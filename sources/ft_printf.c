@@ -18,6 +18,7 @@ static int	validate(t_data *info)
 
 	i = info->i + 1;
 	while (!ft_strchr("cspdiouxXf%", (int)info->c_fmt[i]))
+
 		i++;
 	if (info->c_fmt[i] != '\0')
 		return (1);
@@ -30,14 +31,20 @@ static int	parse(t_data *info)
 
 	valid = 0;
 	if (ft_strcmp(info->c_fmt, "%") == 0)
+	{
+		free(info);
 		exit (0);
+	}
 	while (info->c_fmt[info->i] != '\0')
 	{
 		if (info->c_fmt[info->i] == '%')
 		{
 			valid = validate(info);
 			if (valid == 0)
+			{
+				free(info);
 				exit (0);
+			}
 			reset_data(info);
 			get_modifiers(info);
 		}
