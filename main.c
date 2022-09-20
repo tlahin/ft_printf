@@ -4,16 +4,29 @@
 
 int	main(void)
 {
-	int	real;
+	//int	real;
 	int mine;
 
-	real = printf("%lu", 4294967296);
+	printf("\n-----------\n");
+	printf("%%lu -42\n");
+	//real = printf("%lu", -42);
 	printf("\n");
-	mine = ft_printf("%lu", 4294967296);
-	printf("\n");
-	printf("OG_len: %d\n", real);
+	mine = ft_printf("%lu", -42);
+	printf("\n\n");
+	//printf("OG_len: %d\n", real);
 	printf("FT_len: %d\n", mine);
+
+	printf("\n-----------\n");
+
+	printf("%% hZ\n");
+	//real = printf("% hZ");
 	printf("\n");
-	//printf("%lu", -42);
+	mine = ft_printf("% hZ");
+	printf("\n\n");
+	//printf("OG_len: %d\n", real);
+	printf("FT_len: %d\n", mine);
+
+	printf("\n-----------\n");
+
 	return (0);
 }
