@@ -22,7 +22,7 @@ t_data	*print_percent(t_data *info)
 	if (info->prefix[0] != '-')
 		print_alternative(info, ' ', info->width - 1);
 	if (info->prefix[4] == '0')
-		print_alternative(info, '0', info->prec);
+		print_alternative(info, '0', info->prec - 1);
 	write(1, "%", 1);
 	if (info->prefix[0] == '-')
 		print_alternative(info, ' ', info->width - 1);
