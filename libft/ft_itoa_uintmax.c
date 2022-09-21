@@ -17,7 +17,6 @@ char	*ft_itoa_uintmax(uintmax_t number)
 	char	*new;
 	int		len;
 
-	printf("uintmax_t in: %ju\n", number);
 	len = ft_intlen_max(number) + 1;
 	new = ft_strnew(len + 1);
 	if (!new)
@@ -30,6 +29,5 @@ char	*ft_itoa_uintmax(uintmax_t number)
 		number /= 10;
 	}
 	new[--len] = (char)(number + '0');
-	printf("uintmax_t str: %s\n", new);
 	return (new);
 }
