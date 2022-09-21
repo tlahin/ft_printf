@@ -41,7 +41,7 @@ static char	*unsigned_helper(uintmax_t number, char *tmp)
 		if (number == 0)
 			tmp = ft_strdup("0");
 		else
-			tmp = ft_itoa_base(number, 10);
+			tmp = ft_itoa_uintmax(number);
 	}
 	return (tmp);
 }
