@@ -73,9 +73,11 @@ int		ft_srqt(int x);
 char	*ft_itoa(int i);
 int		ft_intlen_max(uintmax_t nbr);
 char	*ft_itoa_uintmax(uintmax_t number);
-char	*ftoa(long double number, int prec, char dot);
+char	*ft_ftoa(long double number, int prec, char dot);
 char	*ft_strndup(char *str, int size);
 void	ft_str_toupper(char *str);
-int		ft_number_size_base(intmax_t number, int base);
+int		ft_number_size_base(uintmax_t number, int base);
+char	*ft_itoa_base(uintmax_t number, int base);
+int		ft_number_size(intmax_t number);
 
 #endif
