@@ -17,18 +17,12 @@ static long double	rounding(long double number, int prec)
 	long double	rounding;
 	int			i;
 
-	printf("Precision: %d\n", prec);
-	printf("Rounding in: %Lf\n", number);
 	i = 0;
 	rounding = 0.5;
 	if (number < 0)
 		rounding *= -1;
 	while (i++ < prec)
-	{
-		rounding *= 0.10;
-		printf("Rounding: %Lf\n", rounding);
-	}
-	printf("Rounding out: %Lf\n", rounding);
+		rounding /= 10.0;
 	return (rounding);
 }
 
@@ -44,7 +38,6 @@ static char	*joining(char *whole, char *dec_part)
 
 static char	ftoa_helper_2(char *dec_part, char dot, int prec, int i)
 {
-	dec_part = ft_strnew(prec + 1);
 	if (dot && prec > 0)
 		dec_part[i++] = '.';
 	else
@@ -55,9 +48,9 @@ static char	ftoa_helper_2(char *dec_part, char dot, int prec, int i)
 static long double	ftoa_helper_1(long double number, int prec)
 {
 	if (prec >= 0)
-		number = rounding(number, prec);
+		number += rounding(number, prec);
 	else
-		prec = 0;
+		number += 0;
 	if (number < 0)
 		number *= -1;
 	return (number);
@@ -76,12 +69,11 @@ char	*ft_ftoa(long double number, int prec, char dot)
 	if (prec == -1)
 		prec = 6;
 	number = ftoa_helper_1(number, prec);
-	printf("Number: %Lf\n", number);
 	whole = ft_itoa_uintmax(number);
-	printf("Whole: %s\n", whole);
 	dec = number;
 	if (prec > 0)
 		number -= dec;
+	dec_part = ft_strnew(prec + 1);
 	dec_part[i] = ftoa_helper_2(dec_part, dot, prec, i);
 	while (prec-- > 0)
 	{
