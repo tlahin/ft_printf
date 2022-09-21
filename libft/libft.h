@@ -17,8 +17,6 @@
 # include <unistd.h>
 # include <stdint.h>
 
-# include <stdio.h> //laiton
-
 void	ft_putchar(char c);
 void	ft_putnbr(int n);
 void	ft_putstr(char const *s);
