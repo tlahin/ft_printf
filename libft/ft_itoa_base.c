@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-char	*ft_itoa_base(intmax_t number, int base)
+char	*ft_itoa_base(uintmax_t number, int base)
 {
 	char	*new;
 	int		j;
