@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int	ft_number_size_base(intmax_t number, int base)
+int	ft_number_size_base(uintmax_t number, int base)
 {
 	int	len;
 
