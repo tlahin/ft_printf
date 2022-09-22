@@ -16,9 +16,9 @@ static int	collect_f(t_data *info, long double number, int not_empty) //not_empt
 {
 	if (info->prec == 0 && info->prefix[3] == '#')
 		not_empty++;
-	if (info->prefix[2] == ' ' && number >= 0)
-		not_empty++;
 	if (number < 0 || (info->prefix[1] == '+' && number >= 0))
+		not_empty++;
+	else if (info->prefix[2] == ' ' && number >= 0)
 		not_empty++;
 	return (not_empty);
 }
