@@ -36,12 +36,12 @@ static char	*joining(char *whole, char *dec_part)
 	return (joint);
 }
 
-static char	ftoa_helper_2(char *dec_part, char dot, int prec, int i)
+static char	get_dot(char *dec_part, char dot, int prec, int i)
 {
-	if (dot && prec > 0)
-		dec_part[i++] = '.';
+	if (dot == '.' && prec > 0)
+		dec_part[i] = '.';
 	else
-		dec_part[i++] = '\0';
+		dec_part[i] = '\0';
 	return (dec_part[i]);
 }
 
@@ -56,7 +56,7 @@ static long double	ftoa_helper_1(long double number, int prec)
 	return (number);
 }
 
-char	*ft_ftoa(long double number, int prec, char dot)
+char	*ft_ftoa(long double number, int prec, char dot)		//too long
 {
 	char				*joint;
 	char				*whole;
@@ -74,7 +74,8 @@ char	*ft_ftoa(long double number, int prec, char dot)
 	if (prec > 0)
 		number -= dec;
 	dec_part = ft_strnew(prec + 1);
-	dec_part[i] = ftoa_helper_2(dec_part, dot, prec, i);
+	dec_part[i] = get_dot(dec_part, dot, prec, i);
+	i++;
 	while (prec-- > 0)
 	{
 		number *= 10;

@@ -17,7 +17,7 @@ int	ft_number_size_base(uintmax_t number, int base)
 	int	len;
 
 	len = 0;
-	//len += (number < 0);
+	len += (number < 0);
 	while (number)
 	{
 		number /= base;

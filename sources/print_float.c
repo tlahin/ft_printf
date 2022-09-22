@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-static int	collect_f(t_data *info, long double number, int not_empty)
+static int	collect_f(t_data *info, long double number, int not_empty) //not_empty sometimes too much in double tests
 {
 	if (info->prec == 0 && info->prefix[3] == '#')
 		not_empty++;
@@ -28,12 +28,15 @@ static void	put_f(t_data *info, long double number, int not_empty, \
 {
 	if (!info->prefix[0] && !info->prefix[4])
 		print_alternative(info, ' ', info->width - not_empty);
-	if (info->prefix[2] == ' ' && number >= 0 && info->width)
-		print_alternative(info, ' ', 1);
+	if (info->prefix[2] == ' ' && number >= 0 && info->width && \
+			info->prefix[1] != '+')
+		//print_alternative(info, ' ', 1);
+		write (1, " ", 1);
 	if (number < 0)
 		print_alternative(info, '-', 1);
 	if (number >= 0 && info->prefix[1] == '+')
-		print_alternative(info, '+', 1);
+		//print_alternative(info, '+', 1);
+		write (1, "+", 1);
 	if (info->prefix[4] == '0' && zero >= 1)
 		print_alternative(info, '0', zero);
 }
@@ -57,7 +60,7 @@ t_data	*print_float(t_data *info)
 	put_f(info, number, not_empty, zero);
 	ft_putstr(flot);
 	if (info->prefix[3] && info->prec == 0)
-		print_alternative(info, '.', 1);
+		write(1, ".", 1);
 	if (info->prefix[0] == '-')
 		print_alternative(info, ' ', info->width - not_empty);
 	info->len += not_empty;
