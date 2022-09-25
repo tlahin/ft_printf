@@ -57,10 +57,10 @@ int main(void)
 	printf("\n---------------------\n\n");
 
 	printf("OG_printf: \n");
-	real = printf("%+ 1f\n", 3.14159265);
+	real = printf("%010.3f\n", 3.14159265);
 	printf("\n\n");
 	printf("FT_printf: \n");
-	mine = ft_printf("%+ 1f\n", 3.14159265);
+	mine = ft_printf("%010.3f\n", 3.14159265);
 	printf("\n\n");
 	printf("OG_printf returns: %d\n", real);
 	printf("FT_printf returns: %d\n", mine);
