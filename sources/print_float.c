@@ -28,15 +28,13 @@ static void	put_f(t_data *info, long double number, int not_empty, \
 {
 	if (!info->prefix[0] && !info->prefix[4])
 		print_alternative(info, ' ', info->width - not_empty);
-	if (info->prefix[2] == ' ' && number >= 0 && info->width && \
-			info->prefix[1] != '+')
-		//print_alternative(info, ' ', 1);
-		write (1, " ", 1);
+	if (info->prefix[2] == ' ' && number >= 0 && \
+			info->prefix[1] != '+') //&& info->width
+		write (1, " ", 1);			//print_alternative(info, ' ', 1);
 	if (number < 0)
 		print_alternative(info, '-', 1);
 	if (number >= 0 && info->prefix[1] == '+')
-		//print_alternative(info, '+', 1);
-		write (1, "+", 1);
+		write (1, "+", 1);			//print_alternative(info, '+', 1);
 	if (info->prefix[4] == '0' && zero >= 1)
 		print_alternative(info, '0', zero);
 }
