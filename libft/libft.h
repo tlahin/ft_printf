@@ -72,7 +72,7 @@ size_t		ft_intlen(int i);
 int			ft_srqt(int x);
 char		*ft_itoa(int i);
 int			ft_intlen_max(uintmax_t nbr);
-char		*ft_itoa_uintmax(uintmax_t number);
+char		*ft_itoa_intmax(intmax_t number);
 char		*ft_ftoa(long double number, int prec, char dot);
 char		*ft_strndup(char *str, int size);
 void		ft_str_toupper(char *str);
