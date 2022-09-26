@@ -11,18 +11,23 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
-static long double	rounding(long double number, int prec)
+ static long double	ft_rounding(long double number, int prec)
 {
-	long double	rounding;
-	int			i;
+	long double rounding;
 
-	i = 0;
+	printf("number: %Lf\n",  (number - (int)number) * 10);
+	if (((number - (int)number) * 10) == 5)
+		printf("here\n");
 	rounding = 0.5;
 	if (number < 0)
 		rounding *= -1;
-	while (i++ < prec)
-		rounding /= 10.0;
+	while (prec--)
+		rounding *= 0.10;
+	/* printf("prec: %d\n", prec);
+	printf("Number: %Lf\n", number);
+	printf("rounding: %Lf\n", rounding); */
 	return (rounding);
 }
 
@@ -48,7 +53,12 @@ static char	get_dot(char *dec_part, char dot, int prec, int i)
 static long double	ftoa_helper_1(long double number, int prec)
 {
 	if (prec >= 0)
-		number += rounding(number, prec);
+	{
+		if (((int)number % 2) == 0)
+			number += ft_rounding(number, prec);
+		else
+			number += ft_rounding(number, prec);
+	}
 	else
 		number += 0;
 	if (number < 0)
@@ -56,7 +66,7 @@ static long double	ftoa_helper_1(long double number, int prec)
 	return (number);
 }
 
-char	*ft_ftoa(long double number, int prec, char dot)		//too long
+char	*ft_ftoa(long double number, int prec, char dot)
 {
 	char				*joint;
 	char				*whole;
