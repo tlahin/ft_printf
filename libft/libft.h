@@ -79,5 +79,6 @@ void	ft_str_toupper(char *str);
 int		ft_number_size_base(uintmax_t number, int base);
 char	*ft_itoa_base(uintmax_t number, int base);
 int		ft_number_size(intmax_t number);
+long double	ft_powl(long double x, long double y);
 
 #endif
