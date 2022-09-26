@@ -61,7 +61,6 @@ t_data	*print_pointer(t_data *info)
 	uintmax_t	number;
 	int			zero;
 
-	zero = 0;
 	tmp = "";
 	number = (unsigned long)va_arg(info->args, unsigned long int);
 	number = (uintmax_t)number;
