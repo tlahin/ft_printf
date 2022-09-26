@@ -19,8 +19,6 @@
 # include <stdint.h>
 # include <stdbool.h>
 # include <stdint.h>
-# include <wchar.h>
-# include <stdio.h> //laiton
 
 typedef struct s_data
 {
