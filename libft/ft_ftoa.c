@@ -17,17 +17,11 @@
 {
 	long double rounding;
 
-	printf("number: %Lf\n",  (number - (int)number) * 10);
-	if (((number - (int)number) * 10) == 5)
-		printf("here\n");
 	rounding = 0.5;
 	if (number < 0)
 		rounding *= -1;
 	while (prec--)
 		rounding *= 0.10;
-	/* printf("prec: %d\n", prec);
-	printf("Number: %Lf\n", number);
-	printf("rounding: %Lf\n", rounding); */
 	return (rounding);
 }
 
