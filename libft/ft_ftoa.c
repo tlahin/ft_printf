@@ -11,11 +11,10 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
- static long double	ft_rounding(long double number, int prec)
+static long double	ft_rounding(long double number, int prec)
 {
-	long double rounding;
+	long double	rounding;
 
 	rounding = 0.5;
 	if (number < 0)
@@ -48,10 +47,7 @@ static long double	ftoa_helper_1(long double number, int prec)
 {
 	if (prec >= 0)
 	{
-		if (((int)number % 2) == 0)
-			number += ft_rounding(number, prec);
-		else
-			number += ft_rounding(number, prec);
+		number += ft_rounding(number, prec);
 	}
 	else
 		number += 0;
