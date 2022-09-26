@@ -64,12 +64,11 @@ char	*ft_ftoa(long double number, int prec, char dot)
 	unsigned long long	dec;
 	int					i;
 
-	dec_part = "";
 	i = 0;
 	if (prec == -1)
 		prec = 6;
 	number = ftoa_helper_1(number, prec);
-	whole = ft_itoa_uintmax(number);
+	whole = ft_itoa_intmax(number);
 	dec = number;
 	if (prec > 0)
 		number -= dec;
