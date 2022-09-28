@@ -68,7 +68,7 @@ char	*ft_ftoa(long double number, int prec, char dot)
 	if (prec == -1)
 		prec = 6;
 	number = ftoa_helper_1(number, prec);
-	whole = ft_itoa_intmax(number);
+	whole = ft_itoa_uintmax(number);
 	dec = number;
 	if (prec > 0)
 		number -= dec;
