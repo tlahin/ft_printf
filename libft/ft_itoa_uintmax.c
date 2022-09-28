@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-char	*ft_itoa_intmax(intmax_t number)
+char	*ft_itoa_uintmax(uintmax_t number)
 {
 	char	*new;
 	int		len;
