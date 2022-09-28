@@ -50,7 +50,7 @@ t_data	*print_float(t_data *info)
 	number = cast_flot(info);
 	if (number < 0)
 		info->len--;
-	flot = ft_ftoa(number, info->prec, '.');
+	flot = ft_ftoa(number, info->prec, '.', info->j);
 	not_empty = ft_strlen(flot);
 	not_empty = collect_f(info, number, not_empty);
 	if (!info->prefix[0] && info->width > info->prec && info->width > not_empty)

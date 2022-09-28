@@ -14,6 +14,7 @@
 
 t_data	*reset_data(t_data *info)
 {
+	info->j = 0;
 	info->nega = false;
 	info->get_plus = '\0';
 	info->specifier = '\0';
@@ -44,5 +45,6 @@ t_data	*init_data(t_data *info)
 	info->hex_chars = "0123456789abcdef";
 	info->c_fmt = (char *)info->fmt;
 	info->srch_fmt = (char *)info->fmt;
+	info->j = 0;
 	return (info);
 }
