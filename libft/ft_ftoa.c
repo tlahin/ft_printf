@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 static long double	ft_rounding(long double number, int prec)
 {
@@ -45,6 +46,25 @@ static char	get_dot(char *dec_part, char dot, int prec, int i)
 
 static long double	ftoa_helper_1(long double number, int prec)
 {
+ 	long double rounder;
+	long double decider;
+	int counter;
+
+	decider = number;
+	rounder = 0.5;
+	counter = 0;
+	printf("numb: %Lf\n", number);
+	printf("prec: %d\n", prec);
+	while (counter <= prec)
+	{
+		decider -= (int)decider;
+		decider *= 10;
+		counter++;
+		printf("decider_loop: %d\n", (int)decider);
+	}
+	printf("decider_1: %d\n", (int)decider);
+	if ((int)decider == 5 || (int)decider == -5)
+		printf("decider_2: %Lf\n", decider);
 	if (prec >= 0)
 	{
 		number += ft_rounding(number, prec);
