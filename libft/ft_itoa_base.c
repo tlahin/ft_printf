@@ -21,8 +21,6 @@ char	*ft_itoa_base(uintmax_t number, int base)
 	new = (char *)malloc(sizeof(char) * j + 1);
 	if (!new)
 		return (NULL);
-	if (number < 0)
-		new[0] = '-';
 	new[j] = '\0';
 	while (j--)
 	{
