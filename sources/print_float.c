@@ -39,17 +39,43 @@ static void	put_f(t_data *info, long double number, int not_empty, \
 		print_alternative(info, '0', zero);
 }
 
+t_data	*float_helper(t_data *info, long double number)
+{
+		if (number < 0)
+			info->len--;
+		if (number != number)
+		{
+			print_alternative(info, '-', 1);
+			write(1, "nan", 3);
+			info->len += 3;
+			info->valid = false;
+		}
+		else if (number == (-1.0/0.0) || number == (1.0/0.0))
+		{
+			if (number < 0)
+			{
+				print_alternative(info, '-', 1);
+				info->len += 1;
+			}
+			write(1, "inf", 3);
+			info->len += 3;
+			info->valid = false;
+		}
+		return (info);
+}
+
 t_data	*print_float(t_data *info)
 {
 	long double	number;
 	char		*flot;
-	int			not_empty;
+	int			not_empty;	
 	int			zero;
 
 	zero = 0;
 	number = cast_flot(info);
-	if (number < 0)
-		info->len--;
+	float_helper(info, number);
+	if (info->valid == false)
+		return (info);
 	flot = ft_ftoa(number, info->prec, '.', info->j);
 	not_empty = ft_strlen(flot);
 	not_empty = collect_f(info, number, not_empty);

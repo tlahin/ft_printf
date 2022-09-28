@@ -46,5 +46,6 @@ t_data	*init_data(t_data *info)
 	info->c_fmt = (char *)info->fmt;
 	info->srch_fmt = (char *)info->fmt;
 	info->j = 0;
+	info->valid = true;
 	return (info);
 }

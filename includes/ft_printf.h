@@ -42,6 +42,7 @@ typedef struct s_data
 	char		get_plus;
 	bool		nega;
 	int			j;
+	bool		valid;
 }				t_data;
 
 int			ft_printf(const char *format, ...);
