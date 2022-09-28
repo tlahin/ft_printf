@@ -57,15 +57,13 @@ static long double	ftoa_helper_1(long double number, int prec)
 	return (number);
 }
 
-char	*ft_ftoa(long double number, int prec, char dot)
+char	*ft_ftoa(long double number, int prec, char dot, int i)
 {
 	char				*joint;
 	char				*whole;
 	char				*dec_part;
 	unsigned long long	dec;
-	int					i;
 
-	i = 0;
 	if (prec == -1)
 		prec = 6;
 	number = ftoa_helper_1(number, prec);

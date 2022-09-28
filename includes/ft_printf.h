@@ -41,6 +41,7 @@ typedef struct s_data
 	char		*spec_flags;
 	char		get_plus;
 	bool		nega;
+	int			j;
 }				t_data;
 
 int			ft_printf(const char *format, ...);
