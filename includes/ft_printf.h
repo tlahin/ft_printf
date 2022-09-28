@@ -20,7 +20,6 @@
 # include <stdbool.h>
 # include <stdint.h>
 
-
 typedef struct s_data
 {
 	const char	*fmt;
