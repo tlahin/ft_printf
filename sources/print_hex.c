@@ -32,7 +32,7 @@ static t_data	*print_0(t_data *info, char specifier, uintmax_t number)
 
 static void	put_hex(t_data *info, uintmax_t number, int middle, char *tmp)
 {
-	if (info->prefix[4] == '0' && number == 0)
+	if (info->prefix[4] == '0' && info->width == 0 && number == 0)
 		print_alternative(info, '0', 1);
 	if (info->prefix[0] != '-')
 		print_alternative(info, ' ', info->padding);
