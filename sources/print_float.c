@@ -41,34 +41,33 @@ static void	put_f(t_data *info, long double number, int not_empty, \
 
 t_data	*float_helper(t_data *info, long double number)
 {
+	if (number < 0)
+		info->len--;
+	if (number != number)
+	{
+		ft_putstr("nan");
+		info->len += 3;
+		info->valid = false;
+	}
+	else if (number == (-1.0 / 0.0) || number == (1.0 / 0.0))
+	{
 		if (number < 0)
-			info->len--;
-		if (number != number)
 		{
 			print_alternative(info, '-', 1);
-			write(1, "nan", 3);
-			info->len += 3;
-			info->valid = false;
+			info->len += 1;
 		}
-		else if (number == (-1.0/0.0) || number == (1.0/0.0))
-		{
-			if (number < 0)
-			{
-				print_alternative(info, '-', 1);
-				info->len += 1;
-			}
-			write(1, "inf", 3);
-			info->len += 3;
-			info->valid = false;
-		}
-		return (info);
+		ft_putstr("inf");
+		info->len += 3;
+		info->valid = false;
+	}
+	return (info);
 }
 
 t_data	*print_float(t_data *info)
 {
 	long double	number;
 	char		*flot;
-	int			not_empty;	
+	int			not_empty;
 	int			zero;
 
 	zero = 0;
