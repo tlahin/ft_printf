@@ -49,8 +49,8 @@ t_data	*check_inf(t_data *info, long double number)
 			print_alternative(info, ' ', 1);
 		if (number < 0)
 		{
-			info->len += 2;
-			write (1, "-", 1);
+			info->len += 1;
+			print_alternative(info, '-', 1);
 		}
 		if (info->prefix[4] == '0')
 			print_alternative(info, ' ', info->width - 3);
