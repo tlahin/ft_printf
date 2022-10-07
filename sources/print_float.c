@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
+
 static int	collect_f(t_data *info, long double number, int not_empty)
 {
 	if (info->prec == 0 && info->prefix[3] == '#')
