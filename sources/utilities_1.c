@@ -21,9 +21,9 @@ void	put_simple_di(t_data *info, intmax_t number)
 		if (info->prefix[0] != '-')
 			print_alternative(info, ' ', info->width);
 		if (info->prefix[1] == '+')
-			print_alternative(info, '+', info->width);
+			print_alternative(info, '+', 1);
 		else if (info->prefix[2] == ' ')
-			print_alternative(info, ' ', info->width);
+			print_alternative(info, ' ', 1);
 		if (info->prefix[1] == '-')
 			print_alternative(info, ' ', info->width);
 	}
