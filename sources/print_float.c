@@ -32,7 +32,7 @@ static void	put_f(t_data *info, long double number, int not_empty, \
 			info->prefix[1] != '+')
 		write(1, " ", 1);
 	if (number < 0)
-		print_alternative(info, '-', 1);
+		write (1, "-", 1);
 	if (number >= 0 && info->prefix[1] == '+')
 		write (1, "+", 1);
 	if (info->prefix[4] == '0' && zero >= 1)
@@ -43,21 +43,27 @@ t_data	*check_inf(t_data *info, long double number)
 {
 	if (number == (-1.0 / 0.0) || number == (1.0 / 0.0))
 	{
-		if (info->prefix[0] != '-' && info->prefix[4] != '0')
-			print_alternative(info, ' ', info->width - 4);
-		if (info->prefix[2] == ' ' && info->prefix[1] != '+')
-			print_alternative(info, ' ', 1);
-		if (number < 0)
+
+		if (number == (-1.0 / 0.0))
 		{
-			info->len += 1;
-			print_alternative(info, '-', 1);
+			print_alternative(info, ' ', info->width - 4);
+			ft_putstr("-inf");
+			info->len += 4;
 		}
-		if (info->prefix[4] == '0')
-			print_alternative(info, ' ', info->width - 3);
-		if (info->prefix[1] == '+' && number > 0)
-			print_alternative(info, '+', 1);
-		ft_putstr("inf");
-		info->len += 3;
+		else if (number == (1.0 / 0.0))
+		{
+			if (info->prefix[2] == ' ' && info->prefix[4] == '0' && info->width == 0)
+				print_alternative(info, ' ', 1);
+			else if (info->prefix[1] == '+')
+			{
+				print_alternative(info, ' ', info->width - 4);
+				print_alternative(info, '+', 1);
+			}
+			else
+				print_alternative(info, ' ', info->width - 3);
+			ft_putstr("inf");
+			info->len += 3;
+		}
 		info->valid = false;
 	}
 	return (info);
@@ -65,19 +71,16 @@ t_data	*check_inf(t_data *info, long double number)
 
 t_data	*float_helper(t_data *info, long double number)
 {
-	if (number < 0)
-	{
-		info->nega = true;
-		info->len--;
-	}
 	if (number != number)
 	{
-		print_alternative(info, ' ', info->width - 3);
-		ft_putstr("nan");
-		info->len += 3;
+		print_alternative(info, ' ', info->width - 4);
+		ft_putstr("-nan");
+		info->len += 4;
 		info->valid = false;
 	}
 	check_inf(info, number);
+	if (number < 0)
+		info->nega = true;
 	return (info);
 }
 
