@@ -17,7 +17,7 @@ int ft_bankers(long double number, int prec)
         decider *= 10;
         if (counter == prec && (int)decider % 2 == 1)
             return (1);
-        if ((int)decider == 5)
+        if ((int)decider >= 5)
         {
             if (number < 0)
                 number *= -1;
