@@ -16,12 +16,22 @@
 static long double	ft_rounding(long double number, int prec)
 {
 	long double	rounding;
+	int			counter;
+	long double	decider;
 
+	decider = number;
+	counter = 0;
 	rounding = 0.5;
 	if (number < 0)
 		rounding *= -1;
-	while (prec--)
+	while (counter <= prec)
+	{
 		rounding *= 0.10;
+		decider -= (int)decider;
+		decider *= 10;
+		counter++;
+		printf("decider: %Lf\n", decider);
+	}
 	return (rounding);
 }
 
