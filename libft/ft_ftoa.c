@@ -11,27 +11,18 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 static long double	ft_rounding(long double number, int prec)
 {
 	long double	rounding;
-	int			counter;
-	long double	decider;
-
-	decider = number;
-	counter = 0;
+	int			i;
+	
+	i = 0;
 	rounding = 0.5;
 	if (number < 0)
 		rounding *= -1;
-	while (counter <= prec)
-	{
+	while (i++ < prec)
 		rounding *= 0.10;
-		decider -= (int)decider;
-		decider *= 10;
-		counter++;
-		printf("decider: %Lf\n", decider);
-	}
 	return (rounding);
 }
 
@@ -58,7 +49,8 @@ static long double	ftoa_helper_1(long double number, int prec)
 {
 	if (prec >= 0)
 	{
-		number += ft_rounding(number, prec);
+		if (ft_bankers(number, prec) == 1)
+			number += ft_rounding(number, prec);
 	}
 	else
 		number += 0;
