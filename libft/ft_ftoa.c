@@ -50,7 +50,10 @@ static long double	ftoa_helper_1(long double number, int prec)
 	if (prec >= 0)
 	{
 		if (ft_bankers(number, prec) == 1)
-			number += ft_rounding(number, prec);
+		{
+			if (!(number < 0.0 && number > -1.0))
+				number += ft_rounding(number, prec);
+		}
 	}
 	else
 		number += 0;
