@@ -13,12 +13,11 @@
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
+# include "../libft/libft.h"
 # include <unistd.h>
 # include <stdarg.h>
-# include "../libft/libft.h"
 # include <stdint.h>
 # include <stdbool.h>
-# include <stdint.h>
 
 typedef struct s_data
 {
