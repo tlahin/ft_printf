@@ -37,7 +37,7 @@ The function is written in C language and thus needs the **`gcc` compiler** and 
 To compile, go to the library path and run:
 
 ```shell
-$ make && make clean
+$make && make clean
 ```
 
 **2. Using it in your code**
