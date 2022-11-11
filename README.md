@@ -1,3 +1,4 @@
+Included in updated libft (see: [libft](https://github.com/tlahin/libft))
 
 # Reimplementation of the libc's function printf.
 
